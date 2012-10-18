@@ -14,6 +14,7 @@ class WorkshopsController < ApplicationController
 	def create
 		@workshop = Workshop.new(params[:workshop])
 		if @workshop.save
+			flash[:success] = "Workshop successfully created!"
 			redirect_to @workshop
 		else
 			render 'new'
