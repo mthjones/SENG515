@@ -34,4 +34,10 @@ class WorkshopsController < ApplicationController
 			render 'edit'
 		end
 	end
+
+	def destroy
+		Workshop.find(params[:id]).destroy
+		flash[:success] = "Workshop successfully deleted!"
+		redirect_to workshops_url
+	end
 end
