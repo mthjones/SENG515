@@ -1,6 +1,6 @@
 class WorkshopsController < ApplicationController
 	def index
-		@workshops = Workshop.all
+		@workshops = Workshop.all.reverse
 	end
 
 	def show
@@ -9,5 +9,14 @@ class WorkshopsController < ApplicationController
 
 	def new
 		@workshop = Workshop.new
+	end
+
+	def create
+		@workshop = Workshop.new(params[:workshop])
+		if @workshop.save
+			redirect_to @workshop
+		else
+			render 'new'
+		end
 	end
 end
