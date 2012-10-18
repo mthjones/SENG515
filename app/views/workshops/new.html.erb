@@ -1,0 +1,36 @@
+<h1>Add Workshop</h1>
+<%= form_for(@workshop, html: {class: 'form-horizontal well'}) do |f| %>
+	<div class="control-group">
+		<%= f.label :title, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_field :title %>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :description, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_area :description %>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :start_date, class: "control-label" %>
+		<div class="controls">
+			<%= f.date_select :start_date, start_year: Date.today.year %>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :end_date, class: "control-label" %>
+		<div class="controls">
+			<%= f.date_select :end_date, start_year: Date.today.year %>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<%= f.submit "Create Workshop", class: "btn btn-large btn-primary" %>
+		</div>
+	</div>
+<% end %>

@@ -1,7 +1,10 @@
+<div>
+	<%= link_to "Add Workshop", new_workshop_path %>
+</div>
 <% for workshop in @workshops %>
 <div>
-<h2><%= workshop.title %></h2>
-<p><%= workshop.description %></p>
-<%= link_to "View Workshop", workshop %>
+	<h2><%= workshop.title %></h2>
+	<p><%= workshop.description %></p>
+	<%= link_to "View Workshop", workshop %>
 </div>
 <% end %>
