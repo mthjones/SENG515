@@ -12,4 +12,23 @@ describe Workshop do
   it { should respond_to(:description) }
   it { should respond_to(:start_date) }
   it { should respond_to(:end_date) }
+
+  # Make sure workshop is initially valid before testing validations
+  it { should be_valid }
+  describe "when title is not present" do
+  	before { @workshop.title = " " }
+  	it { should_not be_valid }
+  end
+
+  it { should be_valid }
+  describe "when start_date is not present" do
+  	before { @workshop.start_date = nil }
+  	it { should_not be_valid }
+  end
+
+  it { should be_valid }
+  describe "when end_date is not present" do
+  	before { @workshop.end_date = nil }
+  	it { should_not be_valid }
+  end
 end
