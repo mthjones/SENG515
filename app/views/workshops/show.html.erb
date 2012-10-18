@@ -1,7 +1,7 @@
 <p>
   <%= link_to "Edit Workshop", edit_workshop_path(@workshop) %>
   //
-  <%= link_to "Delete Workshop", workshop_path(@workshop), method: "delete" %>
+  <%= link_to "Delete Workshop", workshop_path(@workshop), method: "delete", data: { confirm: "Are you sure you want to delete this workshop?" } %>
 </p>
 <div class="hero-unit">
   <h1><%= @workshop.title %></h1>
