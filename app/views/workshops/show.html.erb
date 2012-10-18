@@ -1,24 +1,10 @@
   <div class="hero-unit">
-    <div>
-      <h1>
-        Agile Development
-      </h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt
-        turpis sit amet odio rhoncus elementum. Suspendisse ac nulla a est varius
-        dignissim. Phasellus bibendum ornare dolor vitae consequat. Proin nec molestie
-        eros. Nullam imperdiet ipsum ac turpis aliquam imperdiet. Nunc gravida
-        ultricies diam at condimentum. Mauris adipiscing sem in nunc rutrum facilisis.
-        Aenean et convallis leo. Aliquam erat dui, ornare eu egestas sed, imperdiet
-        at purus. Curabitur consectetur bibendum nibh varius dictum.
-      </p>
-      <p>
-        January 1, 2013 - March 1, 2013
-      </p>
-    </div>
+    <h1><%= @workshop.title %></h1>
+    <p><%= @workshop.description %></p>
+    <p><%= @workshop.start_date %> - <%= @workshop.end_date %></p>
   </div>
   <ul class="nav nav-tabs">
-    <li>
+    <li class="active">
       <a href="#">
         Sessions
       </a>
