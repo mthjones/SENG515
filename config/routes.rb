@@ -2,7 +2,7 @@ SENG515::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  get "workshops/home"
+  match "/workshops", to: 'workshops#view_all'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

@@ -1,4 +1,4 @@
 class WorkshopsController < ApplicationController
-	def home
+	def view_all
 	end
 end
