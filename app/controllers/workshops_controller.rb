@@ -20,4 +20,18 @@ class WorkshopsController < ApplicationController
 			render 'new'
 		end
 	end
+
+	def edit
+		@workshop = Workshop.find(params[:id])
+	end
+
+	def update
+		@workshop = Workshop.find(params[:id])
+		if @workshop.update_attributes(params[:workshop])
+			flash[:success] = "Workshop successfully updated!"
+			redirect_to @workshop
+		else
+			render 'edit'
+		end
+	end
 end
