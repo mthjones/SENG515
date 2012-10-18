@@ -1,3 +1,8 @@
+<p>
+  <%= link_to "Edit Workshop", edit_workshop_path(@workshop) %>
+  //
+  <%= link_to "Delete Workshop", workshop_path(@workshop), method: "delete" %>
+</p>
 <div class="hero-unit">
   <h1><%= @workshop.title %></h1>
   <p><%= @workshop.description %></p>
