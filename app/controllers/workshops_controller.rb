@@ -1,5 +1,9 @@
 class WorkshopsController < ApplicationController
-	def view_all
+	def index
 		@workshops = Workshop.all
+	end
+
+	def show
+
 	end
 end
