@@ -1,5 +1,6 @@
 <h1>Edit Workshop</h1>
 <%= form_for(@workshop, html: {class: 'form-horizontal well'}) do |f| %>
+	<%= render 'shared/error_messages' %>
 	<div class="control-group">
 		<%= f.label :title, class: "control-label" %>
 		<div class="controls">
