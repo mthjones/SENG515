@@ -1,14 +1,26 @@
 class WorkshopsController < ApplicationController
 	def index
-		@workshops = Workshop.all.reverse
+	  if current_user
+      @workshops = Workshop.all.reverse
+    else
+      redirect_to new_session_path
+    end	
 	end
 
 	def show
-		@workshop = Workshop.find(params[:id])
+	  if current_user
+      @workshop = Workshop.find(params[:id])
+    else
+      redirect_to new_session_path
+    end 
 	end
 
 	def new
-		@workshop = Workshop.new
+	  if current_user
+		  @workshop = Workshop.new
+		else
+		  redirect_to new_session_path
+		end
 	end
 
 	def create
@@ -22,7 +34,11 @@ class WorkshopsController < ApplicationController
 	end
 
 	def edit
-		@workshop = Workshop.find(params[:id])
+	  if current_user
+      @workshop = Workshop.find(params[:id])
+    else
+      redirect_to new_session_path
+    end 
 	end
 
 	def update

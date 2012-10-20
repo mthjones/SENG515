@@ -1,11 +1,18 @@
 SENG515::Application.routes.draw do
+  get "sessions/new"
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "sign_up" => "users#new", :as => "sign_up"
+  get "log_in" => "sessions#new", :as => "log_in"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  root to: 'workshops#index'
+  root to: 'sessions#new'
 
   resources :workshops
-
+  resources :users
+  resources :sessions
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

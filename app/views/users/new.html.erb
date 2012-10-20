@@ -1,0 +1,49 @@
+<h1>Sign Up</h1>
+
+<%= form_for(@user, html: {class: 'form-horizontal well'}) do |f| %>
+<% if @user.errors.any? %>
+<div class="error_explanation">
+	<div class="alert alert-error">
+		<h2>Form is invalid</h2>
+		<ul>
+			<% for message in @user.errors.full_messages %>
+			<li>
+				<%= message %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<% end %>
+
+<div class="control-group">
+	<%= f.label :user_role, class: "control-label"%>
+	<div class="controls">
+		<%= f.select :user_type, ['Admin','Attendee'], :selected => 'Admin' %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :email, class: "control-label" %>
+	<div class="controls">
+		<%= f.text_field :email %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :password , class: "control-label"%>
+	<div class="controls">
+		<%= f.password_field :password %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :password_confirmation , class: "control-label" %>
+	<div class="controls">
+		<%= f.password_field :password_confirmation %>
+	</div>
+</div>
+<div class="control-group">
+	<div class="controls">
+		<%= f.submit class: "btn btn-large btn-primary" %></p>
+	</div>
+</div>
+<% end %>
+
