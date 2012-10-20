@@ -1,4 +1,6 @@
+<% if current_user && current_user.user_type == "Admin" %>
 <%= link_to "Add a new workshop", new_workshop_path %>
+<% end %>
 
 <% for workshop in @workshops %>
 <div>
