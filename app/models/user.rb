@@ -3,7 +3,7 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   attr_accessible :email, :password_hash, :password_salt, :user_type, :password, :password_confirmation
   
-  attr_accessor :password, :user_type
+  attr_accessor :password
   before_save :encrypt_password
   
   validates_confirmation_of :password
