@@ -1,4 +1,4 @@
-<% if current_user && current_user.user_type == "Admin" %>
+<% if current_user_is_admin %>
 <p>
   <%= link_to "Edit Workshop", edit_workshop_path(@workshop) %>
   //

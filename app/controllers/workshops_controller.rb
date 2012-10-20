@@ -8,7 +8,7 @@ class WorkshopsController < ApplicationController
 	end
 
 	def new
-	  if current_user
+	  if current_user_is_admin
 		  @workshop = Workshop.new
 		else
 		  redirect_to new_session_path
@@ -16,7 +16,7 @@ class WorkshopsController < ApplicationController
 	end
 
 	def create
-		if current_user
+		if current_user_is_admin
 			@workshop = Workshop.new(params[:workshop])
 			if @workshop.save
 				flash[:success] = "Workshop successfully created!"
@@ -30,7 +30,7 @@ class WorkshopsController < ApplicationController
 	end
 
 	def edit
-	  if current_user
+	  if current_user_is_admin
       @workshop = Workshop.find(params[:id])
     else
       redirect_to new_session_path
@@ -38,7 +38,7 @@ class WorkshopsController < ApplicationController
 	end
 
 	def update
-		if current_user
+		if current_user_is_admin
 			@workshop = Workshop.find(params[:id])
 			if @workshop.update_attributes(params[:workshop])
 				flash[:success] = "Workshop successfully updated!"
@@ -52,7 +52,7 @@ class WorkshopsController < ApplicationController
 	end
 
 	def destroy
-		if current_user
+		if current_user_is_admin
 			Workshop.find(params[:id]).destroy
 			flash[:success] = "Workshop successfully deleted!"
 			redirect_to workshops_url
