@@ -1,10 +1,13 @@
 class WorkshopsController < ApplicationController
 	def index
+	  
       @workshops = Workshop.all.reverse
+      session[:return_to] = request.url
 	end
 
 	def show
       @workshop = Workshop.find(params[:id])
+      session[:return_to] = request.url
 	end
 
 	def new
