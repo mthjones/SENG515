@@ -20,10 +20,8 @@
   <div class="span4">
     <% for session in @workshop.sessions %>
     <div class="well">
-      <div>
-        <h1><%= session.title %></h1>
-        <p><%= session.description %></p>
-      </div>
+      <h1><%= session.title %></h1>
+      <p><%= session.description %></p>
     </div>
     <% end %>
   </div>
