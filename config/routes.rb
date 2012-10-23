@@ -1,5 +1,7 @@
 SENG515::Application.routes.draw do
-  resources :workshops
+  resources :workshops do
+    resources :sessions, only: [:new, :create, :edit, :update, :destroy]
+  end
   resources :users
   resources :user_sessions, only: [:new, :create, :destroy]
     

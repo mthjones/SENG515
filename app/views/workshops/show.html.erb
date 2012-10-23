@@ -18,10 +18,16 @@
 </ul>
 <div class="row">
   <div class="span4">
+    <div class="well">
+      <%= link_to "Add Session", new_workshop_session_path(@workshop) %>
+    </div>
     <% for session in @workshop.sessions %>
     <div class="well">
       <h1><%= session.title %></h1>
       <p><%= session.description %></p>
+      <%= link_to "Edit Session", edit_workshop_session_path(@workshop, session) %>
+      //
+      <%= link_to "Delete Session", workshop_session_path(@workshop, session), method: "delete", data: { confirm: "Are you sure you want to delete this session?" } %>
     </div>
     <% end %>
   </div>
