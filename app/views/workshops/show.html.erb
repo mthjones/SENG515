@@ -18,24 +18,14 @@
 </ul>
 <div class="row">
   <div class="span4">
+    <% for session in @workshop.sessions %>
     <div class="well">
       <div>
-        <h1>Session 1</h1>
-        <p>This is a template</p>
+        <h1><%= session.title %></h1>
+        <p><%= session.description %></p>
       </div>
     </div>
-    <div class="well">
-      <div>
-        <h1>Session 2</h1>
-        <p>This is a template</p>
-      </div>
-    </div>
-    <div class="well">
-      <div>
-        <h1>Session 3</h1>
-        <p>This is a template</p>
-      </div>
-    </div>
+    <% end %>
   </div>
   <div class="span8">
     <div>
