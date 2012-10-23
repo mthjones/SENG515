@@ -14,7 +14,7 @@ class WorkshopsController < ApplicationController
 	  if current_user_is_admin
 		  @workshop = Workshop.new
 		else
-		  redirect_to new_session_path
+		  redirect_to new_user_session_path
 		end
 	end
 
@@ -36,7 +36,7 @@ class WorkshopsController < ApplicationController
 	  if current_user_is_admin
       @workshop = Workshop.find(params[:id])
     else
-      redirect_to new_session_path
+      redirect_to new_user_session_path
     end 
 	end
 
@@ -60,7 +60,7 @@ class WorkshopsController < ApplicationController
 			flash[:success] = "Workshop successfully deleted!"
 			redirect_to workshops_url
 		else
-			redirect_to new_session_path
+			redirect_to new_user_session_path
 		end
 	end
 end
