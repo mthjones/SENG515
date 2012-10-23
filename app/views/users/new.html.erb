@@ -1,21 +1,7 @@
 <h1>Sign Up</h1>
 
 <%= form_for(@user, html: {class: 'form-horizontal well'}) do |f| %>
-<% if @user.errors.any? %>
-<div class="error_explanation">
-	<div class="alert alert-error">
-		<h2>Form is invalid</h2>
-		<ul>
-			<% for message in @user.errors.full_messages %>
-			<li>
-				<%= message %>
-			</li>
-			<% end %>
-		</ul>
-	</div>
-</div>
-<% end %>
-
+	<%= render 'shared/error_messages', object: @user %>
 <div class="control-group">
 	<%= f.label :user_type, class: "control-label"%>
 	<div class="controls">
