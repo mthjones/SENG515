@@ -10,21 +10,21 @@
   <div class="control-group">
     <%= f.label :description, class: "control-label" %>
     <div class="controls">
-      <%= f.text_area :description %>
+      <%= f.text_area :description, rows: 5 %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :start_datetime, class: "control-label" %>
     <div class="controls">
-      <%= f.datetime_select :start_datetime, start_year: @workshop.start_date.year, start_month: @workshop.start_date.month, start_day: @workshop.start_date.day %>
+      <%= f.datetime_select :start_datetime, start_year: @workshop.start_date.year, start_month: @workshop.start_date.month, start_day: @workshop.start_date.day, minute_step: 15, order: [:day, :month, :year], datetime_separator: ' @ ' %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :end_datetime, class: "control-label" %>
     <div class="controls">
-      <%= f.datetime_select :end_datetime, start_year: @workshop.end_date.year, start_month: @workshop.end_date.month, start_day: @workshop.end_date.day %>
+      <%= f.datetime_select :end_datetime, start_year: @workshop.end_date.year, start_month: @workshop.end_date.month, start_day: @workshop.end_date.day, minute_step: 15, order: [:day, :month, :year], datetime_separator: ' @ ' %>
     </div>
   </div>
 
