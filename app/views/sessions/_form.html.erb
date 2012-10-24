@@ -1,5 +1,4 @@
-<h1>Add Session to <%= @workshop.title %></h1>
-<%= form_for([@workshop, @session], html: {class: 'form-horizontal well'}) do |f| %>
+<%= form_for([@workshop, @session], html: {class: 'form-horizontal'}) do |f| %>
   <%= render 'shared/error_messages', object: @session %>
   <div class="control-group">
     <%= f.label :title, class: "control-label" %>

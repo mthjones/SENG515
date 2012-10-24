@@ -10,6 +10,10 @@ class SessionsController < ApplicationController
   def new
     @workshop = Workshop.find(params[:workshop_id])
     @session = @workshop.sessions.build
+    
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
