@@ -1,1 +1,3 @@
+$('#session-list li').removeClass('active');
+$('#session-' + <%= @session.id %>).addClass('active');
 $('#session-info').html("<%=j render @session %>");
