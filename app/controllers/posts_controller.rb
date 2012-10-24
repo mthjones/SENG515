@@ -8,9 +8,24 @@ class PostsController < ApplicationController
       session[:return_to] = request.url
   end
   def new
+    if current_user_is_admin
+      @post = Post.new
+    else
+      redirect_to new_user_session_path
+    end
   end
   def create
-    
+    if current_user_is_admin
+      @post = Post.new(params[:post])
+      if @post.save
+        flash[:success] = "Post successfully created!"
+        redirect_to @post
+      else
+        render 'new'
+      end
+    else
+      redirect_to status: 404
+    end
   end
   def edit
     if current_user_is_admin
@@ -23,7 +38,7 @@ class PostsController < ApplicationController
     if current_user_is_admin
       @post = Post.find(params[:id])
       if @post.update_attributes(params[:post])
-        flash[:success] = "Workshop successfully updated!"
+        flash[:success] = "Post successfully updated!"
         redirect_to @post
       else
         render 'edit'
