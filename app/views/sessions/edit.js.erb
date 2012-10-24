@@ -1,1 +1,6 @@
-$('#session-info').html("<%=j render 'sessions/form' %>");
+function render_form() {
+  $('#session-info').html("<%=j render 'sessions/form' %>");
+}
+
+$('#session-info *').fadeOut('fast', render_form);
+$('#session-info *').fadeIn('fast');

@@ -1,3 +1,8 @@
+function render_session() {
+  $('#session-info').html("<%=j render @session %>");
+}
+
 $('#session-list li').removeClass('active');
 $('#session-' + <%= @session.id %>).addClass('active');
-$('#session-info').html("<%=j render @session %>");
+$('#session-info').slideUp('fast', render_session);
+$('#session-info').slideDown('fast');

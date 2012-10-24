@@ -1,3 +1,8 @@
+function render_form() {
+  $('#session-info').html("<%=j render 'sessions/form' %>");
+}
+
 $('#session-list li').removeClass('active');
 $('#add-session').addClass('active');
-$('#session-info').html("<%=j render 'sessions/form' %>");
+$('#session-info').slideUp('fast', render_form);
+$('#session-info').slideDown('fast');
