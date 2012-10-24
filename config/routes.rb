@@ -1,4 +1,6 @@
 SENG515::Application.routes.draw do
+  get "posts/new"
+
   resources :workshops do
     resources :sessions
   end
