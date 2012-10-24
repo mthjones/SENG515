@@ -5,12 +5,14 @@ SENG515::Application.routes.draw do
     resources :sessions
   end
   resources :users
-  resources :posts
+  resources :posts, :path => "blog/posts"
   resources :user_sessions, only: [:new, :create, :destroy]
     
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'user_sessions#new'
   match '/signout', to: 'user_sessions#destroy', via: :delete
+  
+
 
   root to: 'workshops#index'
 
