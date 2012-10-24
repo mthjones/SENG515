@@ -1,9 +1,11 @@
+<% if current_user_is_admin %>
 <li class="nav-header">Admin Tools</li>
 <li id="add-session">
   <%= link_to new_workshop_session_path(workshop), remote: true do %>
   <i class="icon-plus"></i> Add Session
   <% end %>
 </li>
+<% end %>
 <li class="nav-header">Sessions</li>
 <% unless workshop.sessions.empty? %>
   <% for session in workshop.sessions %>
