@@ -24,7 +24,7 @@
         <li id="add-session"><%= link_to "Add Session", new_workshop_session_path(@workshop) %></li>
         <li class="nav-header">Sessions</li>
         <% for session in @workshop.sessions %>
-        <li id="session-<%= session.id %>"><%= link_to session.title, workshop_session_path(@workshop, session) %></li>
+        <li id="session-<%= session.id %>"><%= link_to session.title, workshop_session_path(@workshop, session), remote: true %></li>
         <% end %>
       </ul>
     </div>
