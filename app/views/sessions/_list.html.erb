@@ -5,6 +5,10 @@
   <% end %>
 </li>
 <li class="nav-header">Sessions</li>
-<% for session in workshop.sessions %>
-<li id="session-<%= session.id %>"><%= link_to session.title, workshop_session_path(workshop, session), remote: true %></li>
+<% unless workshop.sessions.empty? %>
+  <% for session in workshop.sessions %>
+  <li id="session-<%= session.id %>"><%= link_to session.title, workshop_session_path(workshop, session), remote: true %></li>
+  <% end %>
+<% else %>
+  <li><span class="no-sessions">No sessions</span></li>
 <% end %>
