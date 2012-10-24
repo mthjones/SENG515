@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  def show
+    
+  end
+  
   def new
     @workshop = Workshop.find(params[:workshop_id])
     @session = @workshop.sessions.build
