@@ -18,31 +18,20 @@
 </ul>
 <div class="row">
   <div class="span4">
-    <div class="well">
-      <%= link_to "Add Session", new_workshop_session_path(@workshop) %>
+    <div class="well" style="max-width:340px; padding: 8px 0;">
+      <ul id="session-list" class="nav nav-list">
+        <li class="nav-header">Admin Tools</li>
+        <li id="add-session"><%= link_to "Add Session", new_workshop_session_path(@workshop) %></li>
+        <li class="nav-header">Sessions</li>
+        <% for session in @workshop.sessions %>
+        <li id="session-<%= session.id %>"><%= link_to session.title, workshop_session_path(@workshop, session) %></li>
+        <% end %>
+      </ul>
     </div>
-    <% for session in @workshop.sessions %>
-    <div class="well">
-      <h1><%= session.title %></h1>
-      <p><%= session.description %></p>
-      <%= link_to "Edit Session", edit_workshop_session_path(@workshop, session) %>
-      //
-      <%= link_to "Delete Session", workshop_session_path(@workshop, session), method: "delete", data: { confirm: "Are you sure you want to delete this session?" } %>
-    </div>
-    <% end %>
   </div>
   <div class="span8">
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt
-        turpis sit amet odio rhoncus elementum. Suspendisse ac nulla a est varius
-        dignissim. Phasellus bibendum ornare dolor vitae consequat. Proin nec molestie
-        eros. Nullam imperdiet ipsum ac turpis aliquam imperdiet. Nunc gravida
-        ultricies diam at condimentum. Mauris adipiscing sem in nunc rutrum facilisis.
-        Aenean et convallis leo. Aliquam erat dui, ornare eu egestas sed, imperdiet
-        at purus. Curabitur consectetur bibendum nibh varius dictum.
-        <br>
-      </p>
+    <div class="well">
+      No session selected...
     </div>
   </div>
 </div>
