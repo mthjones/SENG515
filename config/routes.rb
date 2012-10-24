@@ -5,6 +5,7 @@ SENG515::Application.routes.draw do
     resources :sessions
   end
   resources :users
+  resources :posts
   resources :user_sessions, only: [:new, :create, :destroy]
     
   match '/signup',  to: 'users#new'
