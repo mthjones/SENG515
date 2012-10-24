@@ -48,7 +48,9 @@ class SessionsController < ApplicationController
   def destroy
     @workshop = Workshop.find(params[:workshop_id])
     Session.find(params[:id]).destroy
-    flash[:success] = "Session successfully deleted!"
-    redirect_to @workshop
+    
+    respond_to do |format|
+      format.js
+    end
   end
 end
