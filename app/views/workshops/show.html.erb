@@ -20,7 +20,22 @@
   <div class="span4">
     <div class="well" style="max-width:340px; padding: 8px 0;">
       <ul id="session-list" class="nav nav-list">
-        <%= render 'sessions/list', workshop: @workshop %>
+        <% if current_user_is_admin %>
+        <li class="nav-header">Admin Tools</li>
+        <li id="add-session">
+          <%= link_to new_workshop_session_path(@workshop), remote: true do %>
+          <i class="icon-plus"></i> Add Session
+          <% end %>
+        </li>
+        <% end %>
+        <li class="nav-header">Sessions</li>
+        <% unless @workshop.sessions.empty? %>
+          <% for session in @workshop.sessions %>
+          <li class="session" data-id="<%= session.id %>"><%= link_to session.title, workshop_session_path(@workshop, session), remote: true %></li>
+          <% end %>
+        <% else %>
+          <li><span class="no-sessions">No sessions</span></li>
+        <% end %>
       </ul>
     </div>
   </div>
