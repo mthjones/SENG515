@@ -2,7 +2,12 @@ function render_session() {
   $('#session-info').html("<%=j render @session %>");
 }
 
+function update_sessions_list() {
+  $('#session-list').html("<%=j render 'sessions/list', workshop: @session.workshop %>");
+}
+
 $('#session-list li').removeClass('active');
+update_sessions_list();
 $('#session-' + <%= @session.id %>).addClass('active');
 $('#session-info').slideUp('fast', render_session);
 $('#session-info').slideDown('fast');

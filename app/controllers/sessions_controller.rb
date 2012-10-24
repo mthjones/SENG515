@@ -20,8 +20,7 @@ class SessionsController < ApplicationController
     @workshop = Workshop.find(params[:workshop_id])
     @session = @workshop.sessions.build(params[:session])
     if @session.save
-      flash[:success] = "Session successfully created!"
-      redirect_to @workshop
+      render 'show'
     else
       render 'new'
     end
@@ -40,8 +39,7 @@ class SessionsController < ApplicationController
     @workshop = Workshop.find(params[:workshop_id])
     @session = Session.find(params[:id])
     if @session.update_attributes(params[:session])
-      flash[:success] = "Session successfully updated!"
-      redirect_to @workshop
+      render 'show'
     else
       render 'edit'
     end

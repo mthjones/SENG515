@@ -1,4 +1,4 @@
-<%= form_for([@workshop, @session], html: {class: 'form-horizontal'}) do |f| %>
+<%= form_for([@workshop, @session], html: {class: 'form-horizontal'}, remote: true) do |f| %>
   <%= render 'shared/error_messages', object: @session %>
   <div class="control-group">
     <%= f.label :title, class: "control-label" %>
