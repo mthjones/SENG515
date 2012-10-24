@@ -30,6 +30,10 @@ class SessionsController < ApplicationController
   def edit
     @session = Session.find(params[:id])
     @workshop = @session.workshop
+    
+    respond_to do |format|
+      format.js
+    end
   end
   
   def update
