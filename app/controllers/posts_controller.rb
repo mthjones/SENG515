@@ -48,6 +48,12 @@ class PostsController < ApplicationController
     end
   end
   def destroy
-    
+    if current_user_is_admin
+      Post.find(params[:id]).destroy
+      flash[:success] = "Post successfully deleted!"
+      redirect_to posts_url
+    else
+      redirect_to new_user_session_path
+    end
   end
 end
