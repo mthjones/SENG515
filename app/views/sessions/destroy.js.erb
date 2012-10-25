@@ -1,7 +1,8 @@
-function render_session() {
-  $('#session-info').html("No session selected...");
-}
+// Remove the session from the list
+$('.session[data-id=<%= @session.id %>]').remove();
 
-render_session();
-$('#session-info').slideUp('fast', render_session);
-$('#session-info').slideDown('fast');
+// Make sure no sessions are active
+$('#session-list li').removeClass("active");
+
+// Reset content of well
+$('#session-info').text("No session selected...");

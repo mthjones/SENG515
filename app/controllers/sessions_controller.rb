@@ -33,6 +33,9 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    Session.find(params[:id]).destroy
+    @workshop = Workshop.find(params[:workshop_id])
+    @session = Session.find(params[:id])
+    @session.destroy
+    respond_with @session, location: workshop_path(@workshop)
   end
 end
