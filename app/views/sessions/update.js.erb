@@ -1,0 +1,18 @@
+<% if @session.errors.any? %>
+  // Create list for errors
+  var errors = $("<ul/>");
+  
+  // Load errors into list
+  <% @session.errors.full_messages.each do |error| %>
+    errors.append("<li><%=j error %></li>");
+  <% end %>
+  
+  // Display the errors on the form
+  $("<div />").addClass(".errors").html(errors).prependTo($("#session-info"));
+<% else %>
+  // Update the link text to match the new title
+  $('.session[data-id=<%= @session.id %>]').children("a").text("<%=j @session.title %>");
+  
+  // Load the session into the well
+  $("#session-info").html("<%=j render @session %>");
+<% end %>
