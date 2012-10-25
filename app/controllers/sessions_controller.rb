@@ -1,56 +1,38 @@
 class SessionsController < ApplicationController
+  respond_to :html, :js
+  
   def show
     @session = Session.find(params[:id])
-    
-    respond_to do |format|
-      format.js
-    end
+    respond_with @session
   end
   
   def new
     @workshop = Workshop.find(params[:workshop_id])
     @session = @workshop.sessions.build
-    
-    respond_to do |format|
-      format.js
-    end
+    respond_with @session
   end
   
   def create
     @workshop = Workshop.find(params[:workshop_id])
     @session = @workshop.sessions.build(params[:session])
-    if @session.save
-      render 'show'
-    else
-      render 'new'
-    end
+    flash[:notice] = "Session created successfully" if @session.save
+    respond_with @session, location: workshop_path(@workshop)
   end
   
   def edit
     @session = Session.find(params[:id])
     @workshop = @session.workshop
-    
-    respond_to do |format|
-      format.js
-    end
+    respond_with @session
   end
   
   def update
     @workshop = Workshop.find(params[:workshop_id])
     @session = Session.find(params[:id])
-    if @session.update_attributes(params[:session])
-      render 'show'
-    else
-      render 'edit'
-    end
+    flash[:notice] = "Session updated successfully" if @session.update_attributes(params[:session])
+    respond_with @session, location: workshop_path(@workshop)
   end
   
   def destroy
-    @workshop = Workshop.find(params[:workshop_id])
     Session.find(params[:id]).destroy
-    
-    respond_to do |format|
-      format.js
-    end
   end
 end
