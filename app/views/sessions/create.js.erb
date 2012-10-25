@@ -1,0 +1,24 @@
+<% if @session.errors.any? %>
+  // Create list for errors
+  var errors = $("<ul/>");
+  
+  // Load errors into list
+  <% @session.errors.full_messages.each do |error| %>
+    errors.append("<li><%=j error %></li>");
+  <% end %>
+  
+  // Display the errors on the form
+  $("<div />").addClass(".errors").html(errors).prependTo($("#session-info"));
+<% else %>
+  // Create the new session
+  var new_session = $('<li class="session active" data-id="<%= @session.id %>"><%=j link_to @session.title, workshop_session_path(@workshop, @session), remote: true %></li>')
+  
+  // Make it the active session in the list
+  $("#session-list li").removeClass("active");
+  
+  // Add the session to the list
+  $("#session-list").append(new_session);
+  
+  // Load the session into the well
+  $("#session-info").html("<%=j render @session %>");
+<% end %>

@@ -1,8 +1,6 @@
-function render_form() {
-  $('#session-info').html("<%=j render 'sessions/form' %>");
-}
-
+// Update the session list to highlight the Add Session link
 $('#session-list li').removeClass('active');
 $('#add-session').addClass('active');
-$('#session-info').slideUp('fast', render_form);
-$('#session-info').slideDown('fast');
+
+// Render the form into the well
+$("#session-info").html($("<%=j render 'sessions/form' %>"));
