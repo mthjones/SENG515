@@ -7,7 +7,7 @@ describe User do
 
   subject { @user }
 
-  it { should respond_to(:email }
+  it { should respond_to(:email) }
   it { should respond_to(:passworld) }
   it { should respond_to(:user_type) }
 
