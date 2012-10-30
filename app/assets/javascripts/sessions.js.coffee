@@ -14,4 +14,5 @@
   select_session($(".session").first().data('id'))
 
 $ ->
-  select_first_session()
+  if ($("#session-list .session").length)
+    select_first_session()

@@ -4,5 +4,8 @@ $('.session[data-id=<%= @session.id %>]').remove();
 // Make sure no sessions are active
 $('#session-list li').removeClass("active");
 
+// Add the "no sessions" content to the list
+$('#session-list').append('<span class="no-sessions">No sessions</span>');
+
 // Reset content of well
 $('#session-info').text("No session selected...");

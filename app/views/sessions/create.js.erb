@@ -16,6 +16,9 @@
   // Make it the active session in the list
   $("#session-list li").removeClass("active");
   
+  // Remove the 'no sessions' from the list if it exists
+  $("#session-list .no-sessions").remove();
+  
   // Add the session to the list
   $("#session-list").append(new_session);
   
