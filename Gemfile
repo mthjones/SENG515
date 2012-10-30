@@ -11,6 +11,10 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
 end
 
+group :test do
+  gem 'rake'
+end
+
 group :production do
 	gem 'pg'
 end
