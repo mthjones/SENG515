@@ -5,6 +5,7 @@ SENG515::Application.routes.draw do
     resources :sessions
   end
   resources :users
+  resources :equipments
   resources :posts, :path => "blog/posts"
   resources :user_sessions, only: [:new, :create, :destroy]
     
