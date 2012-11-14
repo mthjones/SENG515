@@ -15,7 +15,7 @@ class Admin::RoomsController < ApplicationController
     @room = Room.new(params[:room])
     if @room.save
       flash[:success] = "Room successfully saved!"
-      redirect_to :index
+      redirect_to admin_rooms_path
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Admin::RoomsController < ApplicationController
     @room = Room.find(params[:id])
     if @room.update_attributes(params[:room])
       flash[:success] = "Room successfully saved!"
-      redirect_to :index
+      redirect_to admin_rooms_path
     else
       render :edit
     end
@@ -38,6 +38,6 @@ class Admin::RoomsController < ApplicationController
   def destroy
     Room.find(params[:id]).destroy
     flash[:success] = "Room successfully deleted!"
-    redirect_to :index
+    redirect_to admin_rooms_path
   end
 end
