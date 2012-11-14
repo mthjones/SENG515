@@ -3,28 +3,28 @@
   <div class="control-group">
     <%= f.label :room_no, class: "control-label" %>
     <div class="controls">
-      <%= f.text_field :room_no %>
+      <%= f.text_field :room_no, class: "input-block-level" %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :location, class: "control-label" %>
     <div class="controls">
-      <%= f.text_field :location %>
+      <%= f.text_field :location, class: "input-block-level" %>
     </div>
   </div>
   
   <div class="control-group">
     <%= f.label :description, class: "control-label" %>
     <div class="controls">
-      <%= f.text_area :description %>
+      <%= f.text_area :description, class: "input-block-level" %>
     </div>
   </div>
   
   <div class="control-group">
     <%= f.label :equipment, class: "control-label" %>
     <div class="controls">
-      <%= f.select :equipment_ids, Equipment.all.collect { |x| [x.name, x.id]}, {}, multiple: true %>
+      <%= f.select :equipment_ids, Equipment.all.collect { |x| [x.name, x.id]}, {}, multiple: true, class: "input-block-level" %>
     </div>
   </div>
 
