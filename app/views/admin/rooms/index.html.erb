@@ -6,7 +6,7 @@
       <th>Number</th>
       <th>Location</th>
       <th>Description</th>
-      <!-- <th>Equipment</th> -->
+      <th>Equipment</th>
       <th>Manage</th>
     </tr>
   </thead>
@@ -17,7 +17,7 @@
       <td><%= room.room_no %></td>
       <td><%= room.location %></td>
       <td><%= room.description %></td>
-      <!-- <td><%# room.equipment %></td> -->
+      <td><%= room.equipment %></td>
       <td>
         <%= link_to edit_admin_room_path(room), rel: "tooltip", title: "Edit" do %>
           <i class="icon-edit"></i>
@@ -29,7 +29,7 @@
     </tr>
     <% end %>
     <tr>
-      <td colspan="5"><%= link_to "Add new room", new_admin_room_path %></td>
+      <td colspan="6"><%= link_to "Add new room", new_admin_room_path %></td>
     </tr>
   </tbody>
 </table>

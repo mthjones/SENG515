@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 20121114213854) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "equipment_rooms", :id => false, :force => true do |t|
+    t.integer "room_id"
+    t.integer "equipment_id"
+  end
+
+  add_index "equipment_rooms", ["equipment_id", "room_id"], :name => "index_equipment_rooms_on_equipment_id_and_room_id"
+  add_index "equipment_rooms", ["room_id", "equipment_id"], :name => "index_equipment_rooms_on_room_id_and_equipment_id"
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -35,14 +43,6 @@ ActiveRecord::Schema.define(:version => 20121114213854) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
-
-  create_table "rooms_equipment", :id => false, :force => true do |t|
-    t.integer "room_id"
-    t.integer "equipment_id"
-  end
-
-  add_index "rooms_equipment", ["equipment_id", "room_id"], :name => "index_rooms_equipment_on_equipment_id_and_room_id"
-  add_index "rooms_equipment", ["room_id", "equipment_id"], :name => "index_rooms_equipment_on_room_id_and_equipment_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "title"
