@@ -56,7 +56,7 @@ class EquipmentController < ApplicationController
     if current_user_is_admin
       Equipment.find(params[:id]).destroy
       flash[:success] = "Equipment successfully deleted!"
-      redirect_to equipments_url
+      redirect_to equipment_index_path
     else
       redirect_to new_user_session_path
     end
