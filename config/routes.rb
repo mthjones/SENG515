@@ -1,6 +1,4 @@
 SENG515::Application.routes.draw do
-  get "posts/new"
-
   resources :workshops do
     resources :sessions
   end
@@ -9,11 +7,10 @@ SENG515::Application.routes.draw do
   resources :posts, :path => "blog/posts"
   resources :user_sessions, only: [:new, :create, :destroy]
     
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'user_sessions#new'
-  match '/signout', to: 'user_sessions#destroy', via: :delete
-  
-
+  match '/register',  to: 'users#new'
+  match '/login' => 'user_sessions#new', via: :get
+  match '/login' => 'user_sessions#create', via: :post
+  match '/logout' => 'user_sessions#destroy', via: :delete
 
   root to: 'workshops#index'
 
