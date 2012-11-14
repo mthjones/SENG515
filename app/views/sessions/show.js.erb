@@ -6,3 +6,5 @@ $('.session[data-id=<%= @session.id %>]').append('<div class="triangle"></div>')
 
 // Render the form into the well
 $("#session-info").html($("<%=j render @session %>"));
+
+$("[rel~=tooltip]").tooltip()
