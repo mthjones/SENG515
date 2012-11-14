@@ -7,7 +7,6 @@ SENG515::Application.routes.draw do
     resources :sessions
   end
   resources :users
-  resources :equipment
   resources :posts, :path => "blog/posts"
     
   match '/register',  to: 'users#new'
