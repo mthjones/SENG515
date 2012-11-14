@@ -7,6 +7,7 @@ SENG515::Application.routes.draw do
     resources :sessions
   end
   resources :users
+  resources :rooms, only: :index
   resources :posts, :path => "blog/posts"
     
   match '/register',  to: 'users#new'

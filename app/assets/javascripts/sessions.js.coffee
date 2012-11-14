@@ -6,7 +6,7 @@
   session = $(".session[data-id="+id+"]")
   session.addClass("active")
   
-  g$.get(window.location.pathname + "/sessions/" + id, 
+  $.get(window.location.pathname + "/sessions/" + id, 
     () -> ,
     "script")
 
@@ -14,8 +14,10 @@
   select_session($(".session").first().data('id'))
 
 update_rooms = () ->
-  selected_equipment = $("#equipment option:selected")
-  console.log selected_equipment
+  equipment_ids = (equipment.value for equipment in $("#equipment option:selected"))
+  $.get("/rooms.json?equipment_ids=" + equipment_ids.join(",")
+    (data) -> console.log(data),
+    "json")
 
 $ ->
   if ($("#session-list .session").length)
