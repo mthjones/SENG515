@@ -6,13 +6,20 @@
   session = $(".session[data-id="+id+"]")
   session.addClass("active")
   
-  $.get(window.location.pathname + "/sessions/" + id, 
+  g$.get(window.location.pathname + "/sessions/" + id, 
     () -> ,
     "script")
 
 @select_first_session = () ->
   select_session($(".session").first().data('id'))
 
+update_rooms = () ->
+  selected_equipment = $("#equipment option:selected")
+  console.log selected_equipment
+
 $ ->
   if ($("#session-list .session").length)
     select_first_session()
+  
+  $("#session-info").on "change", "#equipment", () ->
+    update_rooms()
