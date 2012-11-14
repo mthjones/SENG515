@@ -1,9 +1,12 @@
 SENG515::Application.routes.draw do
+  namespace :admin do
+    resources :equipment
+    resources :rooms
+  end
   resources :workshops do
     resources :sessions
   end
   resources :users
-  resources :equipment
   resources :posts, :path => "blog/posts"
     
   match '/register',  to: 'users#new'
