@@ -2,12 +2,12 @@
   <% if current_user_is_admin %>
   <ul class="admin-controls">
     <li>
-      <%= link_to workshop_path(@workshop), method: "delete", rel: "tooltip", title: "Delete", data: { confirm: "Are you sure you want to delete this workshop?", placement: "left", delay: { show: 300, hide: 0 } } do %>
+      <%= link_to workshop_path(@workshop), method: "delete", rel: "tooltip", title: "Delete", data: { confirm: "Are you sure you want to delete this workshop?", placement: "left" } do %>
         <i class="icon-remove"></i>
       <% end %>
     </li>
     <li>
-      <%= link_to edit_workshop_path(@workshop), rel: "tooltip", title: "Edit", data: { placement: "left", delay: { show: 300, hide: 0 } } do %>
+      <%= link_to edit_workshop_path(@workshop), rel: "tooltip", title: "Edit", data: { placement: "left" } do %>
         <i class="icon-edit" title="Edit"></i>
       <% end %>
     </li>
