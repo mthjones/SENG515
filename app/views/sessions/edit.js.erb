@@ -2,3 +2,8 @@ $(".tooltip").remove();
 
 // Render the form into the well
 $("#session-info").html($("<%=j render 'sessions/form' %>"));
+
+$("#equipment").select2({
+  placeholder: "Required equipment",
+  allowClear: true
+});

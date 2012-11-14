@@ -13,6 +13,13 @@
       <%= f.text_area :description, rows: 5, class: "input-block-level" %>
     </div>
   </div>
+  
+  <div class="control-group">
+    <%= label_tag :equipment, nil, class: "control-label" %>
+    <div class="controls">
+      <%= select_tag :equipment, options_from_collection_for_select(Equipment.all, :id, :name), multiple: true, class: "input-block-level" %>
+    </div>
+  </div>
 
   <div class="control-group">
     <%= f.label :start_datetime, class: "control-label" %>
