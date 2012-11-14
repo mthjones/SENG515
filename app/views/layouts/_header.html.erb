@@ -1,6 +1,6 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
-		<div class="container" align="middle">
+		<div class="container">
 			<%= link_to "Session Planner", root_path, class: 'brand' %>
 			<ul class="nav">
 				<li>
@@ -11,14 +11,9 @@
 				</li>
 				<li>
 					<%= link_to "Equipment", :equipments %>
-				</li>
-				<li>
-					<a href="#"> About </a>
-				</li>				
+				</li>		
 			</ul>
-<%= render 'layouts/login_logout' %>
+		<%= render 'layouts/login_logout' %>
 		</div>
-		
 	</div>
-	
 </div>
