@@ -20,6 +20,13 @@
       <%= f.text_area :description %>
     </div>
   </div>
+  
+  <div class="control-group">
+    <%= f.label :equipment, class: "control-label" %>
+    <div class="controls">
+      <%= f.select :equipment_ids, Equipment.all.collect { |x| [x.name, x.id]}, {}, multiple: true %>
+    </div>
+  </div>
 
   <div class="control-group">
     <div class="controls">
