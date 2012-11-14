@@ -15,7 +15,7 @@
   <% end %>
   <h1><%= @workshop.title %></h1>
   <p><%= @workshop.description %></p>
-  <p><%= @workshop.start_date %> - <%= @workshop.end_date %></p>
+  <p><%= @workshop.start_date.strftime("%x") %> - <%= @workshop.end_date.strftime("%x") %></p>
 </div>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#">Sessions</a></li>
