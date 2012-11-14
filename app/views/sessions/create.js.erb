@@ -22,6 +22,9 @@
   // Add the session to the list
   $("#session-list").append(new_session);
   
+  $('.triangle').remove();
+  new_session.append('<div class="triangle"></div>');
+  
   // Load the session into the well
   $("#session-info").html("<%=j render @session %>");
 <% end %>
