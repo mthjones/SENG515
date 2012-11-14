@@ -3,4 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $("#room_equipment_ids").select2()
+  $("#room_equipment_ids").select2({
+      placeholder: "Select Equipment this room contains",
+      allowClear: true
+    })
