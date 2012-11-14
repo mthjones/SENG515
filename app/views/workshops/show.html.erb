@@ -2,13 +2,13 @@
   <% if current_user_is_admin %>
   <ul class="admin-controls">
     <li>
-      <%= link_to edit_workshop_path(@workshop) do %>
-        <i class="icon-edit" title="Edit"></i>
+      <%= link_to workshop_path(@workshop), method: "delete", data: { confirm: "Are you sure you want to delete this workshop?" } do %>
+        <i class="icon-remove" title="Delete"></i>
       <% end %>
     </li>
     <li>
-      <%= link_to workshop_path(@workshop), method: "delete", data: { confirm: "Are you sure you want to delete this workshop?" } do %>
-        <i class="icon-remove" title="Delete"></i>
+      <%= link_to edit_workshop_path(@workshop) do %>
+        <i class="icon-edit" title="Edit"></i>
       <% end %>
     </li>
   </ul>
