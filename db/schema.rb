@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114015712) do
+ActiveRecord::Schema.define(:version => 20121114213854) do
 
   create_table "equipment", :force => true do |t|
     t.string   "name"
@@ -27,14 +27,6 @@ ActiveRecord::Schema.define(:version => 20121114015712) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "room_equipments", :force => true do |t|
-    t.integer  "room_id"
-    t.integer  "equipment_id"
-    t.integer  "quantity"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "rooms", :force => true do |t|
     t.string   "room_no"
     t.string   "location"
@@ -43,6 +35,14 @@ ActiveRecord::Schema.define(:version => 20121114015712) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "rooms_equipment", :id => false, :force => true do |t|
+    t.integer "room_id"
+    t.integer "equipment_id"
+  end
+
+  add_index "rooms_equipment", ["equipment_id", "room_id"], :name => "index_rooms_equipment_on_equipment_id_and_room_id"
+  add_index "rooms_equipment", ["room_id", "equipment_id"], :name => "index_rooms_equipment_on_room_id_and_equipment_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "title"
