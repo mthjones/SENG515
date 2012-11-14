@@ -5,7 +5,6 @@ SENG515::Application.routes.draw do
   resources :users
   resources :equipments
   resources :posts, :path => "blog/posts"
-  resources :user_sessions, only: [:new, :create, :destroy]
     
   match '/register',  to: 'users#new'
   match '/login' => 'user_sessions#new', via: :get
