@@ -1,6 +1,8 @@
 // Update the session list to highlight the selected session link
 $('#session-list li').removeClass('active');
 $('.session[data-id=<%= @session.id %>]').addClass('active');
+$('.triangle').remove();
+$('.session[data-id=<%= @session.id %>]').append('<div class="triangle"></div>');
 
 // Render the form into the well
 $("#session-info").html($("<%=j render @session %>"));
