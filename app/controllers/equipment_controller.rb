@@ -1,4 +1,4 @@
-class EquipmentsController < ApplicationController
+class EquipmentController < ApplicationController
   
  def index
      @Equipments = Equipment.all.reverse
