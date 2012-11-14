@@ -1,3 +1,28 @@
 // Place all the styles related to the Workshops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.workshop-info {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.workshop-info h1 {
+  text-align: center;
+  border-bottom: 1px dotted #CCC;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.workshop-info .description {
+  font-size: 1.1em;
+  text-align: justify;
+  border-bottom: 1px dotted #CCC;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.workshop-info .dates {
+  font-size: 3em;
+  text-align: center;
+}

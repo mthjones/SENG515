@@ -1,4 +1,4 @@
-<div class="hero-unit">
+<div class="hero-unit workshop-info">
   <% if current_user_is_admin %>
   <ul class="admin-controls">
     <li>
@@ -14,8 +14,8 @@
   </ul>
   <% end %>
   <h1><%= @workshop.title %></h1>
-  <p><%= @workshop.description %></p>
-  <p><%= @workshop.start_date.strftime("%x") %> - <%= @workshop.end_date.strftime("%x") %></p>
+  <% unless @workshop.description.empty? %><p class="description"><%= @workshop.description %></p><% end %>
+  <p class="dates"><time datetime="<%= @workshop.start_date %>"><%= @workshop.start_date.strftime("%x") %></time> - <time datetime="<%= @workshop.end_date %>"><%= @workshop.end_date.strftime("%x") %></time></p>
 </div>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#">Sessions</a></li>
