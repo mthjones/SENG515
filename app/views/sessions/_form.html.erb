@@ -20,6 +20,13 @@
       <%= select_tag :equipment, options_from_collection_for_select(Equipment.all, :id, :name), multiple: true, class: "input-block-level" %>
     </div>
   </div>
+  
+  <div class="control-group">
+    <%= f.label :room, nil, class: "control-label" %>
+    <div class="controls">
+      <%= f.select :room, options_from_collection_for_select(Room.all, :id, :room_no), class: "input-block-level" %>
+    </div>
+  </div>
 
   <div class="control-group">
     <%= f.label :start_datetime, class: "control-label" %>
