@@ -6,7 +6,7 @@
 <div>
 	<h2><%= equipment.name %></h2>
 	<p><%= truncate(equipment.description, :length => 400, :omission => '... (continued)') %></p>
-	<%= link_to "View equipement", post %>
+	<%= link_to "View equipement", equipment %>
 </div>
 <% end %>
 

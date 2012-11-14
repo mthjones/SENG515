@@ -1,0 +1,12 @@
+<% if current_user_is_admin %>
+<p>
+  <%= link_to "Edit Equipment", edit_equipment_path(@equipment) %>
+  //
+  <%= link_to "Delete Eqipment", equipment_path(@equipment), method: "delete", data: { confirm: "Are you sure you want to delete this Equipement?" } %>
+</p>
+<% end %>
+<div class="hero-unit" >
+  <h1><%= @equipment.name %></h1>
+  <p><%= @equipment.description %></p>
+</div>
+
