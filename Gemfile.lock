@@ -127,7 +127,6 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass (~> 2.1.0.1)
   coffee-rails (~> 3.2.1)
-  jdbc-sqlite3
   jquery-rails
   pg
   rails (= 3.2.8)
