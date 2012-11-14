@@ -1,4 +1,6 @@
 class Admin::EquipmentController < ApplicationController
+  before_filter :ensure_admin
+  
   def index
     @equipment = Equipment.all
   end
@@ -15,7 +17,7 @@ class Admin::EquipmentController < ApplicationController
     @equipment = Equipment.new(params[:equipment])
     if @equipment.save
       flash[:success] = "Equipment successfully saved!"
-      redirect_to :index
+      redirect_to admin_equipment_index_path
     else
       render :new
     end
@@ -29,7 +31,7 @@ class Admin::EquipmentController < ApplicationController
     @equipment = Equipment.find(params[:id])
     if @equipment.update_attributes(params[:equipment])
       flash[:success] = "Equipment successfully saved!"
-      redirect_to :index
+      redirect_to admin_equipment_index_path
     else
       render :edit
     end
@@ -38,6 +40,14 @@ class Admin::EquipmentController < ApplicationController
   def destroy
     Equipment.find(params[:id]).destroy
     flash[:success] = "Equipment successfully deleted!"
-    redirect_to :index
+    redirect_to admin_equipment_index_path
+  end
+  
+  private
+  
+  def ensure_admin
+    unless current_user_is_admin
+      redirect_to status: 404
+    end
   end
 end
