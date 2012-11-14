@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(:version => 20121114015712) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "workshop_id"
-    t.string   "equipment"
   end
 
   create_table "users", :force => true do |t|
@@ -67,8 +66,8 @@ ActiveRecord::Schema.define(:version => 20121114015712) do
   create_table "workshops", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.date     "start_date"
-    t.date     "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
