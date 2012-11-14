@@ -1,16 +1,14 @@
 @import "bootstrap";
+@import "bootstrap-responsive";
 
 body {
 	padding: 60px; /* Make container go to bottom of navbar */
 }
 
-#error_explanation {
-
+.dropdown-menu form {
+  padding: 10px;
+  padding-bottom: 0;
 }
-
-.field_with_errors {
-  color: red;
- }
 
 /* Form styling */
 form select {
