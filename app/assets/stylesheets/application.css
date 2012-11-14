@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+.dropdown-menu form {
+  padding: 10px;
+  padding-bottom: 0;
+}
