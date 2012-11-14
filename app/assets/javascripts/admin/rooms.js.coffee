@@ -4,6 +4,6 @@
 
 $ ->
   $("#room_equipment_ids").select2({
-      placeholder: "Select Equipment this room contains",
+      placeholder: "Select equipment for this room",
       allowClear: true
     })
