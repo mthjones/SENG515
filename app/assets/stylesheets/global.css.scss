@@ -11,6 +11,32 @@ body {
   @extend .alert-block; /* optional */
 }
 
+.hero-unit {
+  position: relative;
+}
+
+.admin-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  list-style: none;
+}
+
+.admin-controls a:hover {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-controls i:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
 .field_with_errors {
   @extend .control-group.error
 }
