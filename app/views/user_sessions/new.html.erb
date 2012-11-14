@@ -1,6 +1,6 @@
-<h2>Please login to manage workshop</h2>
+<h2>Login</h2>
 
-<%= form_tag( user_sessions_path, :class =>'form-horizontal well' ) do %>
+<%= form_tag user_sessions_path, :class =>'form-horizontal well' do %>
 <div class="control-group">
 	<%= label_tag 'Email', nil, :class => 'control-label' %>
 	<div class="controls">
@@ -15,7 +15,7 @@
 </div>
 <div class="control-group">
 	<div class="controls">
-		<%= submit_tag "Log in", :class => "btn btn-large btn-primary" %>
+		<%= submit_tag "Log in", :class => "btn btn-primary" %>
 	</div>
 </div>
 <% end %>
