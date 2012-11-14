@@ -7,10 +7,10 @@ class UserSessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "Logged in!"
-      redirect_to workshops_path
+      redirect_to :back
     else
       flash.now.alert = "Invalid email or password"
-      render "new"
+      render :new
     end
   end
   
