@@ -1,0 +1,29 @@
+<%= form_for( [:admin, @room],  html: {class: 'form-horizontal well'}) do |f| %>
+  <%= render 'shared/error_messages', object:  @room %>
+  <div class="control-group">
+    <%= f.label :room_no, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :room_no %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :location, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :location %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :description, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_area :description %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit class: "btn btn-large btn-primary" %>
+    </div>
+  </div>
+<% end %>
