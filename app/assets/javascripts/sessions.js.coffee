@@ -28,5 +28,11 @@ $ ->
   if ($("#session-list .session").length)
     select_first_session()
   
+  $("#session-info").on "click", "#cancel-button", (event) ->
+    if $("#session-list #add-session.active").length
+      select_first_session()
+    else
+      select_session($("#session-list .active").data("id"))
+  
   $("#session-info").on "change", "#equipment", () ->
     update_rooms()
