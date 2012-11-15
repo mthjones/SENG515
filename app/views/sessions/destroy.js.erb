@@ -12,4 +12,8 @@ if (!($('#session-list .session').length)) {
 }
 
 // Reset content of well
-$('#session-info').text("No session selected...");
+if ($(".session").length !== 0) {
+  $.get(window.location.pathname + "/sessions/" + $(".session").first().data('id'), function() {}, "script");
+} else {
+  $("#session-info").empty();
+}
