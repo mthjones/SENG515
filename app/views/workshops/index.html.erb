@@ -1,5 +1,5 @@
 <% if current_user_is_admin %>
-<%= link_to "Add a new workshop", new_workshop_path %>
+<div class="well"><%= link_to "Add a new workshop", new_workshop_path %></div>
 <% end %>
 
 <% for workshop in @workshops %>

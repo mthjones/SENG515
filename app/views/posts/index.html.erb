@@ -1,5 +1,5 @@
 <% if current_user_is_admin %>
-<%= link_to "Create a new post", new_post_path %>
+<div class="well"><%= link_to "Create a new post", new_post_path %></div>
 <% end %>
 
 <% for post in @Posts %>
