@@ -4,6 +4,7 @@ class Session < ActiveRecord::Base
   belongs_to :workshop
   belongs_to :room
   
+  validates :room, presence: true
   validates :title, presence: true
   validates :start_datetime, presence: true
   validates :end_datetime, presence: true
