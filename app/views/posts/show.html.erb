@@ -1,11 +1,18 @@
-<% if current_user_is_admin %>
-<p>
-  <%= link_to "Edit Post", edit_post_path(@post) %>
-  //
-  <%= link_to "Delete Post", post_path(@post), method: "delete", data: { confirm: "Are you sure you want to delete this post?" } %>
-</p>
-<% end %>
-<div class="hero-unit" >
+<div class="hero-unit post-info">
+  <% if current_user_is_admin %>
+  <ul class="admin-controls">
+    <li>
+      <%= link_to post_path(@post), method: "delete", rel: "tooltip", title: "Delete", data: { confirm: "Are you sure you want to delete this post?", placement: "left" } do %>
+        <i class="icon-remove"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to edit_post_path(@post), rel: "tooltip", title: "Edit", data: { placement: "left" } do %>
+        <i class="icon-edit"></i>
+      <% end %>
+    </li>
+  </ul>
+  <% end %>
   <h1><%= @post.title %></h1>
   <p>Created at: <%= @post.created_at %></p>
 </div>
