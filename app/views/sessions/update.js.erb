@@ -8,7 +8,8 @@
   <% end %>
   
   // Display the errors on the form
-  $("<div />").addClass(".errors").html(errors).prependTo($("#session-info"));
+  $("#session-info form #error_explanation").remove();
+  $('<div id="error_explanation" />').html(errors).prependTo($("#session-info form"));
 <% else %>
   // Update the link text to match the new title
   $('.session[data-id=<%= @session.id %>]').children("a").text("<%=j @session.title %>");

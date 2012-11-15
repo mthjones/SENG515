@@ -8,7 +8,8 @@
   <% end %>
   
   // Display the errors on the form
-  $("<div />").addClass(".errors").html(errors).prependTo($("#session-info"));
+  $("#session-info form #error_explanation").remove();
+  $('<div id="error_explanation" />').html(errors).prependTo($("#session-info form"));
 <% else %>
   // Create the new session
   var new_session = $('<li class="session active" data-id="<%= @session.id %>"><%=j link_to @session.title, workshop_session_path(@workshop, @session), remote: true %></li>')
