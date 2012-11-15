@@ -3,12 +3,6 @@
 <%= form_for(@user, html: {class: 'form-horizontal well'}) do |f| %>
 	<%= render 'shared/error_messages', object: @user %>
 <div class="control-group">
-	<%= f.label :user_type, class: "control-label"%>
-	<div class="controls">
-		<%= f.select :user_type, ['Admin','Attendee'], :selected => 'Admin' %>
-	</div>
-</div>
-<div class="control-group">
 	<%= f.label :email, class: "control-label" %>
 	<div class="controls">
 		<%= f.email_field :email %>
