@@ -47,7 +47,7 @@ class Admin::EquipmentController < ApplicationController
   
   def ensure_admin
     unless current_user_is_admin
-      redirect_to status: 404
+      redirect_to root_path
     end
   end
 end
