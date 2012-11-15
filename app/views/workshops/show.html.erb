@@ -17,12 +17,12 @@
   <% unless @workshop.description.empty? %><p class="description"><%= @workshop.description %></p><% end %>
   <p class="dates"><time datetime="<%= @workshop.start_date %>"><%= @workshop.start_date.strftime("%x") %></time><% unless @workshop.start_date == @workshop.end_date %> - <time datetime="<%= @workshop.end_date %>"><%= @workshop.end_date.strftime("%x") %></time><% end %></p>
 </div>
-<ul class="nav nav-tabs">
+<!-- <ul class="nav nav-tabs">
   <li class="active"><a href="#">Sessions</a></li>
   <li><a href="#">Calendar</a></li>
   <li><a href="#">Map</a></li>
   <li><a href="#">About</a></li>
-</ul>
+</ul> -->
 <div class="row">
   <div class="span4">
     <div class="well" style="padding: 8px 0;">
