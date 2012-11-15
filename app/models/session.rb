@@ -20,9 +20,9 @@ class Session < ActiveRecord::Base
   
   def room_not_double_booked
     self.room.sessions.each do |sess|
-      unless sess == self
+      unless self == sess
         if self.overlaps_times_with(sess)
-          self.errors.add(:room_id, "is already booked on the selected dates. (" + sess.title + ")")
+          self.errors.add(:room, "is already booked at the selected times.")
           break
         end
       end
@@ -32,6 +32,6 @@ class Session < ActiveRecord::Base
   protected
   
   def overlaps_times_with(other)
-    (self.start_datetime..self.end_datetime).overlaps?(other.start_datetime..other.end_datetime)
+    !((self.start_datetime <= other.start_datetime && self.end_datetime <= other.start_datetime)|| (self.start_datetime >= other.end_datetime && self.end_datetime >= other.end_datetime))
   end
 end
