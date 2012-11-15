@@ -8,9 +8,16 @@ class Session < ActiveRecord::Base
   validates :title, presence: true
   validates :start_datetime, presence: true
   validates :end_datetime, presence: true
-
+  
+  validate :at_least_15_minutes
   validate :end_datetime_later_than_start_datetime
   validate :room_not_double_booked
+  
+  def at_least_15_minutes
+    if (self.end_datetime - self.start_datetime) < 15.minutes
+      self.errors.add(:end_datetime, "must be at least 15 minutes after start time.")
+    end
+  end
 
   def end_datetime_later_than_start_datetime
     if self.end_datetime && self.start_datetime && (self.start_datetime > self.end_datetime)
