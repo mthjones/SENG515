@@ -12,6 +12,7 @@ class Session < ActiveRecord::Base
   validate :at_least_15_minutes
   validate :end_datetime_later_than_start_datetime
   validate :room_not_double_booked
+  validate :within_workshop_date_range
   
   def at_least_15_minutes
     if (self.end_datetime - self.start_datetime) < 15.minutes
@@ -33,6 +34,15 @@ class Session < ActiveRecord::Base
           break
         end
       end
+    end
+  end
+  
+  def within_workshop_date_range
+    if self.start_datetime < self.workshop.start_date
+      self.errors.add(:start_datetime, "must be after the workshop start.")
+    end
+    if self.end_datetime > self.workshop.end_date.tomorrow
+      self.errors.add(:end_datetime, "must be before the workshop end.")
     end
   end
   
