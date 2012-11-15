@@ -12,15 +12,21 @@
   </li>
 </ul>
 <% end %>
-<h3><%= @session.title %></h3>
-<p><%= @session.description %></p>
-<p><%= @session.room.room_no %> - <%= @session.room.location %></p>
+<h2><%= @session.title %></h2>
+<dl class="dl-horizontal">
+  <dt>Location</dt>
+  <dd><%= @session.room.room_no %> - <%= @session.room.location %></dd>
+  <dt>Time</dt>
+  <dd><time><%= l @session.start_datetime, format: :long %></time> - <time><%= l @session.end_datetime, format: :long %></time></dd>
 <% if current_user_is_admin %>
-<p>Equipment:</p>
-<ul>
-  <% @session.room.equipment.each do |e| %>
-  <li><%= e.name %></li>
-  <% end %>
-</ul>
+  <dt>Equipment</dt>
+  <dd>
+    <ul>
+      <% @session.room.equipment.each do |e| %>
+      <li><%= e.name %></li>
+      <% end %>
+    </ul>
+  </dd>
 <% end %>
-<time><%= @session.start_datetime.strftime("%c") %></time> - <time><%= @session.end_datetime.strftime("%c") %></time>
+</dl>
+<p><%= @session.description %></p>
