@@ -1,7 +1,7 @@
 class Workshop < ActiveRecord::Base
   attr_accessible :description, :end_date, :start_date, :title
   
-  has_many :sessions
+  has_many :sessions, dependent: :destroy
 
   validates :title, presence: true
   validates :start_date, presence: true
