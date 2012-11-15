@@ -17,11 +17,7 @@
       <td><%= room.room_no %></td>
       <td><%= room.location %></td>
       <td><%= room.description %></td>
-      <td>
-        <% room.equipment.each do |equipment| %>
-          <%= equipment.name %>,
-        <% end %>
-      </td>
+      <td><%= room.equipment.map { |e| e.name }.join(", ") %></td>
       <td>
         <%= link_to edit_admin_room_path(room), rel: "tooltip", title: "Edit" do %>
           <i class="icon-edit"></i>
