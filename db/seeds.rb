@@ -115,4 +115,11 @@ puts "Creating workshops..."
   end
 end
 
+if User.count == 0
+  puts "Creating administrator user..."
+  User.create!(email: "admin@admin.com", password: "admin")
+  puts "\tEmail: admin@admin.com"
+  puts "\tPassword: admin"
+end
+
 puts "Finished seeding!"
