@@ -26,7 +26,6 @@ class Session < ActiveRecord::Base
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
   validate :validate_end_datetime_later_than_start_datetime
 >>>>>>> Revert "Add validation for daterange room overlaps"
 =======
@@ -43,17 +42,12 @@ class Session < ActiveRecord::Base
 =======
   validate :validate_end_datetime_later_than_start_datetime
 >>>>>>> Revert "Add validation for daterange room overlaps"
-=======
-  validate :end_datetime_later_than_start_datetime
-  validate :room_not_double_booked
->>>>>>> seeded database
 
-  def end_datetime_later_than_start_datetime
+  def validate_end_datetime_later_than_start_datetime
     if self.end_datetime && self.start_datetime && (self.start_datetime > self.end_datetime)
       self.errors.add(:end_datetime, "must be a later date than the start date.")
     end
   end
-<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -68,8 +62,6 @@ class Session < ActiveRecord::Base
 =======
 =======
 >>>>>>> Revert "Revert "Add validation for daterange room overlaps""
-=======
->>>>>>> seeded database
   
   def room_not_double_booked
     self.room.sessions.each do |sess|
@@ -77,19 +69,15 @@ class Session < ActiveRecord::Base
         if self.overlaps_times_with(sess)
           self.errors.add(:room_id, "is already booked on the selected dates. (" + sess.title + ")")
 <<<<<<< HEAD
-<<<<<<< HEAD
 >>>>>>> Revert "Revert "Add validation for daterange room overlaps""
 =======
 >>>>>>> Revert "Revert "Add validation for daterange room overlaps""
-=======
->>>>>>> seeded database
           break
         end
       end
     end
   end
   
-<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   def within_workshop_date_range
@@ -111,14 +99,11 @@ class Session < ActiveRecord::Base
 =======
 =======
 >>>>>>> Revert "Revert "Add validation for daterange room overlaps""
-=======
->>>>>>> seeded database
   protected
   
   def overlaps_times_with(other)
     (self.start_datetime..self.end_datetime).overlaps?(other.start_datetime..other.end_datetime)
   end
-<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> Revert "Revert "Add validation for daterange room overlaps""
 =======
@@ -127,6 +112,4 @@ class Session < ActiveRecord::Base
 >>>>>>> Revert "Revert "Add validation for daterange room overlaps""
 =======
 >>>>>>> Revert "Add validation for daterange room overlaps"
-=======
->>>>>>> seeded database
 end
