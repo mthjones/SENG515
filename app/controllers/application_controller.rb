@@ -11,6 +11,5 @@ class ApplicationController < ActionController::Base
 
   def current_user_is_admin
   	return current_user && current_user.user_type == "Admin"
-  end
-  
+  end  
 end

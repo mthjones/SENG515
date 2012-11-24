@@ -1,4 +1,18 @@
 SENG515::Application.routes.draw do
+  get "my_sessions/new"
+
+  get "my_sessions/create"
+
+  get "my_sessions/edit"
+
+  get "my_sessions/update"
+
+  get "my_sessions/destroy"
+
+  get "my_sessions/show"
+
+  match '/my_sessions', to: 'my_sessions#show'
+
   namespace :admin do
     resources :equipment
     resources :rooms

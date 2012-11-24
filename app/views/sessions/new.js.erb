@@ -3,6 +3,7 @@ $('#session-list li').removeClass('active');
 $('#add-session').addClass('active');
 $('.triangle').remove();
 $('#add-session').append('<div class="triangle"></div>');
+$('#add-my-session').addClass('active');
 
 // Render the form into the well
 $("#session-info").html($("<%=j render 'sessions/form' %>"));
