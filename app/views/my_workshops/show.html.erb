@@ -1,21 +1,8 @@
 
 <h1> Workshops you are currently enrolled in: </h1>
-<div class="hero-unit workshop-info">
-  <% if current_user_is_admin %>
-  <ul class="admin-controls">
-    <li>
-      <%= link_to workshop_path(@workshop), method: "delete", rel: "tooltip", title: "Delete", data: { confirm: "Are you sure you want to delete this workshop?", placement: "left" } do %>
-        <i class="icon-remove"></i>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to edit_workshop_path(@workshop), rel: "tooltip", title: "Edit", data: { placement: "left" } do %>
-        <i class="icon-edit"></i>
-      <% end %>
-    </li>
-  </ul>
-  <% end %>
-  <h1><%= @workshop.title %></h1>
-  <% unless @workshop.description.empty? %><p class="description"><%= @workshop.description %></p><% end %>
-  
+ <% for workshop in @workshops %>
+<div class="well">
+  <h2><%= link_to workshop.title, workshop %></h2>
+  <p><%= workshop.description %></p>
 </div>
+<% end %>
