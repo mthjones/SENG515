@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.user_type = User.count == 0 ? "Admin" : "Attendee"
     if @user.save
       flash[:success] = "Signed up!"
       session[:user_id] = @user.id

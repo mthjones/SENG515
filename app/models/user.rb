@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password_hash, :password_salt, :user_type, :password, :password_confirmation
   
   attr_accessor :password
-  before_save :encrypt_password
+  before_save :encrypt_password, :make_first_user_admin
   
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
@@ -28,4 +28,7 @@ class User < ActiveRecord::Base
     end
   end
   
+  def make_first_user_admin
+    self.user_type = User.count == 0 ? "Admin" : "Attendee"
+  end
 end
