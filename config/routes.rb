@@ -1,4 +1,12 @@
 SENG515::Application.routes.draw do
+  get "my_workshops/show"
+
+  get "my_workshops/new"
+
+  get "my_sessions/my_sessions"
+
+  get "home/my_sessions"
+
   namespace :admin do
     resources :equipment
     resources :rooms

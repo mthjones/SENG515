@@ -1,0 +1,2 @@
+module MyWorkshopsHelper
+end
