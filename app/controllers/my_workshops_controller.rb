@@ -3,3 +3,4 @@ class MyWorkshopsController < ApplicationController
 	  @workshops = Workshop.all.reverse
       session[:return_to] = request.url
     end
+ end
