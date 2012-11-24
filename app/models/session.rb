@@ -22,14 +22,20 @@ class Session < ActiveRecord::Base
   end
 =======
 
+<<<<<<< HEAD
   validate :validate_end_datetime_later_than_start_datetime
 >>>>>>> Revert "Add validation for daterange room overlaps"
+=======
+  validate :end_datetime_later_than_start_datetime
+  validate :room_not_double_booked
+>>>>>>> Revert "Revert "Add validation for daterange room overlaps""
 
-  def validate_end_datetime_later_than_start_datetime
+  def end_datetime_later_than_start_datetime
     if self.end_datetime && self.start_datetime && (self.start_datetime > self.end_datetime)
       self.errors.add(:end_datetime, "must be a later date than the start date.")
     end
   end
+<<<<<<< HEAD
 <<<<<<< HEAD
   
   def room_not_double_booked
@@ -37,12 +43,21 @@ class Session < ActiveRecord::Base
       unless self == sess
         if self.overlaps_times_with(sess)
           self.errors.add(:room, "is already booked at the selected times.")
+=======
+  
+  def room_not_double_booked
+    self.room.sessions.each do |sess|
+      unless sess == self
+        if self.overlaps_times_with(sess)
+          self.errors.add(:room_id, "is already booked on the selected dates. (" + sess.title + ")")
+>>>>>>> Revert "Revert "Add validation for daterange room overlaps""
           break
         end
       end
     end
   end
   
+<<<<<<< HEAD
   def within_workshop_date_range
     if self.start_datetime < self.workshop.start_date
       self.errors.add(:start_datetime, "must be after the workshop start.")
@@ -59,4 +74,11 @@ class Session < ActiveRecord::Base
   end
 =======
 >>>>>>> Revert "Add validation for daterange room overlaps"
+=======
+  protected
+  
+  def overlaps_times_with(other)
+    (self.start_datetime..self.end_datetime).overlaps?(other.start_datetime..other.end_datetime)
+  end
+>>>>>>> Revert "Revert "Add validation for daterange room overlaps""
 end
