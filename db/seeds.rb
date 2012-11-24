@@ -5,7 +5,110 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Room.delete_all
 Workshop.delete_all
-(1..100).each do |num|
-	Workshop.create!(title: (0...15).map{ (('a'..'z').to_a + ('A'..'Z').to_a + [' ']*10).to_a[rand(62)] }.join, description: (0...200).map{ (('a'..'z').to_a + ('A'..'Z').to_a + [' ']*10).to_a[rand(62)] }.join, start_date: Date.today, end_date: Date.today + 21.days)
+Session.delete_all
+Room.delete_all
+Equipment.delete_all
+
+EQUIPMENT = [
+  { name: "Projector", description: Faker::Lorem.sentence(rand(5..20)) },
+  { name: "TV", description: Faker::Lorem.sentence(rand(5..20)) },
+  { name: "VCR", description: Faker::Lorem.sentence(rand(5..20)) },
+  { name: "DVD Player", description: Faker::Lorem.sentence(rand(5..20)) },
+  { name: "Blu-ray Player", description: Faker::Lorem.sentence(rand(5..20)) },
+  { name: "Conference Table", description: Faker::Lorem.sentence(rand(5..20)) },
+  { name: "Microphone", description: Faker::Lorem.sentence(rand(5..20)) }
+]
+
+puts "Creating equipment..."
+
+EQUIPMENT.each do |e|
+  e = Equipment.new({
+    name: e[:name],
+    description: e[:description]
+  })
+  
+  if e.save
+    puts "\tCreated equipment: #{e.name}"
+  else
+    puts "\tCouldn't create equipment: #{e.name}"
+  end
 end
+
+puts "Creating rooms..."
+LOCATIONS = []
+(1..20).each do |l_num|
+  LOCATIONS.push(Faker::Address.street_address())
+end
+
+(1..200).each do |r_num|
+  room = Room.new({
+    room_no: Faker::Address.building_number(),
+    location: LOCATIONS[rand(LOCATIONS.length)]
+  })
+  
+  e_count = rand(Equipment.count)
+  puts "\tAdding equipment to room..."
+  (1..e_count).each do |e_num|
+    e = Equipment.all.sample
+    room.equipment += [e]
+    puts "\t\tAdded #{e.name} to room."
+  end
+  
+  if room.save
+    puts "\tCreated room: #{room.room_no} #{room.location}"
+  else
+    puts "\tCouldn't create room: #{room.room_no} #{room.location}"
+  end
+end
+
+puts "Creating workshops..."
+(1..50).each do |w_num|
+	workshop = Workshop.new({
+    title: Faker::Lorem.words(rand(3..10)).join(" ").titleize, 
+    description: Faker::Lorem.sentences(rand(5..20)).join(" "), 
+    start_date: Date.today, 
+    end_date: Date.today + rand(21).days
+  })
+  
+  puts "\tAdding sessions to workshop..."
+  (1..rand(5..25)).each do |s_num|
+    start_datetime = Time.at(workshop.start_date.to_time + rand * (workshop.end_date.to_time.to_f - workshop.start_date.to_time.to_f)).to_datetime
+    end_datetime = Time.at(start_datetime.to_time + rand * ((start_datetime + 8.hours).to_f - start_datetime.to_time.to_f)).to_datetime + 15.minutes
+    
+    session = Session.new({
+      title: Faker::Lorem.words(rand(2..8)).join(" ").titleize,
+      description: Faker::Lorem.sentences(rand(5..20)).join(" "),
+      start_datetime: start_datetime,
+      end_datetime: end_datetime
+      })
+    
+    session.workshop = workshop
+    
+    rooms_checked = 1
+    session.room = Room.all.sample
+    while (session.invalid? && rooms_checked < Room.all.count)
+      session.room = Room.all.sample
+      rooms_checked += 1
+    end
+    
+    if rooms_checked >= Room.all.count
+      puts "\t\tNo rooms available for session."
+    else
+      if session.save
+        puts "\t\tCreated session: #{session.title}"
+      else
+        puts "\t\tCouldn't create session: #{session.title}"
+      end
+    end
+  end
+  
+  if workshop.save
+    puts "\tCreated workshop: #{workshop.title}"
+  else
+    puts "\tCouldn't create workshop: #{workshop.title}"
+  end
+end
+
+puts "Finished seeding!"
