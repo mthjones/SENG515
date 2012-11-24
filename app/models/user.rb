@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
 
-  has_many :sessions
+  has_many :user_sessions
+  has_many :sessions, :through => :user_sessions
 
   def self.authenticate(email, password)
     user = find_by_email(email)
