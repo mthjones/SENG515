@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'bootstrap-sass', '~> 2.1.1'
 gem "select2-rails"
+gem 'faker'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
