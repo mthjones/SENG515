@@ -8,7 +8,6 @@ class Session < ActiveRecord::Base
   validates :title, presence: true
   validates :start_datetime, presence: true
   validates :end_datetime, presence: true
-<<<<<<< HEAD
   
   validate :at_least_15_minutes
   validate :end_datetime_later_than_start_datetime
@@ -20,17 +19,12 @@ class Session < ActiveRecord::Base
       self.errors.add(:end_datetime, "must be at least 15 minutes after start time.")
     end
   end
-=======
 
-  validate :validate_end_datetime_later_than_start_datetime
->>>>>>> Revert "Add validation for daterange room overlaps"
-
-  def validate_end_datetime_later_than_start_datetime
+  def end_datetime_later_than_start_datetime
     if self.end_datetime && self.start_datetime && (self.start_datetime > self.end_datetime)
       self.errors.add(:end_datetime, "must be a later date than the start date.")
     end
   end
-<<<<<<< HEAD
   
   def room_not_double_booked
     self.room.sessions.each do |sess|
@@ -57,6 +51,4 @@ class Session < ActiveRecord::Base
   def overlaps_times_with(other)
     !((self.start_datetime <= other.start_datetime && self.end_datetime <= other.start_datetime)|| (self.start_datetime >= other.end_datetime && self.end_datetime >= other.end_datetime))
   end
-=======
->>>>>>> Revert "Add validation for daterange room overlaps"
 end
