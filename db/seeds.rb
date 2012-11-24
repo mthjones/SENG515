@@ -71,7 +71,7 @@ puts "Creating workshops..."
 (1..50).each do |w_num|
 	workshop = Workshop.new({
     title: Faker::Lorem.words(rand(3..10)).join(" ").titleize, 
-    description: Faker::Lorem.sentences(rand(5..20)).join(" "), 
+    description: Faker::Lorem.paragraphs(rand(3..10)).join(" "), 
     start_date: Date.today, 
     end_date: Date.today + rand(21).days
   })
