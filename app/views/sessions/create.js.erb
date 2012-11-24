@@ -12,7 +12,7 @@
   $('<div id="error_explanation" />').html(errors).prependTo($("#session-info form"));
 <% else %>
   // Create the new session
-  var new_session = $('<li class="session active" data-id="<%= @session.id %>"><%=j link_to @session.title, workshop_session_path(@workshop, @session), remote: true %></li>')
+  var new_session = $('<li class="session active" data-id="<%= @session.id %>"><%=j link_to truncate(@session.title, length: 35, separator: " "), workshop_session_path(@workshop, @session), remote: true %></li>')
   
   // Make it the active session in the list
   $("#session-list li").removeClass("active");

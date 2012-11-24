@@ -38,7 +38,7 @@
         <li class="nav-header">Sessions</li>
         <% unless @workshop.sessions.empty? %>
           <% for session in @workshop.sessions %>
-          <li class="session" data-id="<%= session.id %>"><%= link_to session.title, workshop_session_path(@workshop, session), remote: true %></li>
+          <li class="session" data-id="<%= session.id %>"><%= link_to truncate(session.title, length: 35, separator: " "), workshop_session_path(@workshop, session), remote: true %></li>
           <% end %>
         <% else %>
           <li><span class="no-sessions">No sessions</span></li>

@@ -12,7 +12,7 @@
   $('<div id="error_explanation" />').html(errors).prependTo($("#session-info form"));
 <% else %>
   // Update the link text to match the new title
-  $('.session[data-id=<%= @session.id %>]').children("a").text("<%=j @session.title %>");
+  $('.session[data-id=<%= @session.id %>]').children("a").text('<%=j truncate(@session.title, length: 35, separator: " ") %>');
   
   // Load the session into the well
   $("#session-info").html("<%=j render @session %>");
