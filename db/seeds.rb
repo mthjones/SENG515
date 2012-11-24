@@ -36,6 +36,8 @@ EQUIPMENT.each do |e|
   end
 end
 
+all_equipment = Equipment.all
+
 puts "Creating rooms..."
 LOCATIONS = []
 (1..20).each do |l_num|
@@ -48,10 +50,10 @@ end
     location: LOCATIONS[rand(LOCATIONS.length)]
   })
   
-  e_count = rand(Equipment.count)
+  e_count = rand(all_equipment.length)
   puts "\tAdding equipment to room..."
   (1..e_count).each do |e_num|
-    e = Equipment.all.sample
+    e = all_equipment.sample
     room.equipment += [e]
     puts "\t\tAdded #{e.name} to room."
   end
@@ -62,6 +64,8 @@ end
     puts "\tCouldn't create room: #{room.room_no} #{room.location}"
   end
 end
+
+all_rooms = Room.all
 
 puts "Creating workshops..."
 (1..50).each do |w_num|
@@ -87,13 +91,13 @@ puts "Creating workshops..."
     session.workshop = workshop
     
     rooms_checked = 1
-    session.room = Room.all.sample
-    while (session.invalid? && rooms_checked < Room.all.count)
-      session.room = Room.all.sample
+    session.room = all_rooms.sample
+    while (session.invalid? && rooms_checked < all_rooms.length)
+      session.room = all_rooms.sample
       rooms_checked += 1
     end
     
-    if rooms_checked >= Room.all.count
+    if rooms_checked >= all_rooms.length
       puts "\t\tNo rooms available for session."
     else
       if session.save
