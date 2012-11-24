@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
   end
   
   def create
-    flash[:notice] = "Pressed Create Session" 
     @workshop = Workshop.find(params[:workshop_id])
     @session = @workshop.sessions.build(params[:session])
     flash[:notice] = "Session created successfully" if @session.save
