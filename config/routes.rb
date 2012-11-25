@@ -1,5 +1,7 @@
 SENG515::Application.routes.draw do
   
+  devise_for :users
+
   namespace :admin do
     resources :equipment
     resources :rooms
