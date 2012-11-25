@@ -43,8 +43,9 @@
 			          <%= text_field_tag 'user[email]' %>
 			          <%= label_tag 'Password' %>
 			          <%= password_field_tag 'user[password]' %>
-			          <%= check_box_tag 'user[remember_me]' %>
-			          <%= label_tag 'user[remember_me]', 'Remember me' %>
+			          <label class="checkbox">
+				          <%= check_box_tag 'user[remember_me]' %> Remember me
+			          </label>
 			          <%= submit_tag "Log in", :class => "btn btn-primary" %>
 			          <%= link_to "Forgot your password?", new_password_path('user') %>
 			        <% end %>
