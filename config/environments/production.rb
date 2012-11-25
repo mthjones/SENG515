@@ -19,6 +19,7 @@ SENG515::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  config.assets.initialize_on_precompile = false
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -50,6 +51,7 @@ SENG515::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { :host => 'hidden-chamber-1598.herokuapp.com' }
 
   # Enable threaded mode
   # config.threadsafe!
