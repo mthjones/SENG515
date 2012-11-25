@@ -14,4 +14,12 @@ class Workshop < ActiveRecord::Base
   		self.errors.add(:end_date, "must be a later date than the start date.")
   	end
   end
+  
+  def finished?
+    return self.end_date < Date.today
+  end
+  
+  def in_progress?
+    return !self.finished? && self.start_date < Date.today
+  end
 end
