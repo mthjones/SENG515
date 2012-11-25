@@ -21,6 +21,23 @@ body {
   padding-bottom: 0;
 }
 
+/* Admin controls */
+.admin-controls-container {
+  position: relative;
+}
+
+.admin-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  list-style: none;
+}
+
 /* Form styling */
 form select {
   width: auto;
