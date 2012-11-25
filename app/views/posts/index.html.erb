@@ -2,7 +2,7 @@
 <div class="well"><%= link_to "Create a new post", new_post_path %></div>
 <% end %>
 
-<% for post in @Posts %>
+<% for post in @posts %>
 <div class="well">
 	<h2><%= link_to post.title, post %></h2>
 	<p><%= truncate(post.content, :length => 400, :omission => '... (continued)') %></p>

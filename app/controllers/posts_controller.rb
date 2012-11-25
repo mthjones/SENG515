@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-     @Posts = Post.all.reverse
+     @posts = Post.all.reverse
       session[:return_to] = request.url
   end
   def show
