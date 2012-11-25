@@ -1,6 +1,6 @@
 class WorkshopsController < ApplicationController
 	def index
-      @workshops = Workshop.order("start_date DESC")
+      @workshops = Workshop.where("start_date >= ?", Date.today).order("start_date ASC")
       session[:return_to] = request.url
 	end
 
