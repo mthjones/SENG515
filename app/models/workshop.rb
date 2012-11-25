@@ -23,4 +23,10 @@ class Workshop < ActiveRecord::Base
   def in_progress?
     return !self.finished? && self.start_date < Date.today
   end
+  
+  before_save do |workshop|
+    if workshop.budget.nil?
+      workshop.create_budget()
+    end
+  end
 end
