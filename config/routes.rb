@@ -9,9 +9,7 @@ SENG515::Application.routes.draw do
   resources :workshops do
     resources :sessions
   end
-  resources :users, only: :show do
-    resources :sessions, controller: :user_sessions
-  end
+  resources :users, only: :show
   resources :my_sessions
   resources :rooms, only: :index
   resources :posts, :path => "blog/posts"
