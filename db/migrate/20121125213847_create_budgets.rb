@@ -3,7 +3,7 @@ class CreateBudgets < ActiveRecord::Migration
     create_table :budgets do |t|
       t.references :workshop
       t.decimal :accomodation_cost, :precision => 10, :scale => 2
-      t.decimal :vendor_cost, :precision => 10, :scale => 2
+      t.decimal :venue_cost, :precision => 10, :scale => 2
 
       t.timestamps
     end
