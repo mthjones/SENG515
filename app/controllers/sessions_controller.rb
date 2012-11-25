@@ -43,13 +43,11 @@ class SessionsController < ApplicationController
     flash[:success] = "Session has been added to your schedule!"
     @session = Session.find(params[:id])
     current_user.sessions << @session
-    redirect_to Workshop.find(params[:workshop_id])
   end
   
   def unregister
     flash[:notice] = "Session has been removed from your schedule."
     @session = Session.find(params[:id])
     current_user.sessions.delete @session
-    redirect_to Workshop.find(params[:workshop_id])
   end
 end
