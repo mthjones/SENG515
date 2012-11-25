@@ -44,4 +44,10 @@ class SessionsController < ApplicationController
     current_user.sessions << @session
     redirect_to Workshop.find(params[:workshop_id])
   end
+  
+  def unregister
+    @session = Session.find(params[:id])
+    current_user.sessions.delete @session
+    redirect_to Workshop.find(params[:workshop_id])
+  end
 end
