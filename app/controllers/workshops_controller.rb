@@ -1,7 +1,7 @@
 class WorkshopsController < ApplicationController
 	def index
 		if params.has_key?(:all)
-			@workshops = Workshop.all
+			@workshops = Workshop.order("start_date ASC")
 		else
       @workshops = Workshop.where("end_date >= ?", Date.today).order("start_date ASC")
 		end
