@@ -2,7 +2,6 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Name</th>
       <th>Description</th>
       <th>Manage</th>
@@ -11,7 +10,6 @@
   <tbody>
     <% @equipment.each do |equipment| %>
     <tr>
-      <td><%= equipment.id %></td>
       <td><%= equipment.name %></td>
       <td><%= equipment.description %></td>
       <td>
@@ -25,7 +23,7 @@
     </tr>
     <% end %>
     <tr>
-      <td colspan="4"><%= link_to "Add new equipment", new_admin_equipment_path %></td>
+      <td colspan="3"><%= link_to "Add new equipment", new_admin_equipment_path %></td>
     </tr>
   </tbody>
 </table>

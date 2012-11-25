@@ -2,7 +2,6 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Number</th>
       <th>Location</th>
       <th>Description</th>
@@ -13,7 +12,6 @@
   <tbody>
     <% @rooms.each do |room| %>
     <tr>
-      <td><%= room.id %></td>
       <td><%= room.room_no %></td>
       <td><%= room.location %></td>
       <td><%= room.description %></td>
@@ -29,7 +27,7 @@
     </tr>
     <% end %>
     <tr>
-      <td colspan="6"><%= link_to "Add new room", new_admin_room_path %></td>
+      <td colspan="5"><%= link_to "Add new room", new_admin_room_path %></td>
     </tr>
   </tbody>
 </table>
