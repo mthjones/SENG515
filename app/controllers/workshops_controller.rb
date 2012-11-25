@@ -1,7 +1,6 @@
 class WorkshopsController < ApplicationController
 	def index
-	  
-      @workshops = Workshop.all.reverse
+      @workshops = Workshop.order("start_date DESC")
       session[:return_to] = request.url
 	end
 
