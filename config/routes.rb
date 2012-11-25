@@ -13,6 +13,7 @@ SENG515::Application.routes.draw do
         post :unregister
       end
     end
+    resource :budget
   end
   resources :users, only: :show
   resources :rooms, only: :index
