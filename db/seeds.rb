@@ -40,11 +40,11 @@ all_equipment = Equipment.all
 
 puts "Creating rooms..."
 LOCATIONS = []
-(1..20).each do |l_num|
+20.times do |l_num|
   LOCATIONS.push(Faker::Address.street_address())
 end
 
-(1..200).each do |r_num|
+200.times do |r_num|
   room = Room.new({
     room_no: Faker::Address.building_number(),
     location: LOCATIONS[rand(LOCATIONS.length)]
@@ -68,7 +68,7 @@ end
 all_rooms = Room.all
 
 puts "Creating workshops..."
-(1..50).each do |w_num|
+50.times do |w_num|
 	workshop = Workshop.new({
     title: Faker::Lorem.words(rand(3..10)).join(" ").titleize, 
     description: Faker::Lorem.paragraphs(rand(3..10)).join(" "), 
@@ -77,7 +77,7 @@ puts "Creating workshops..."
   })
   
   puts "\tAdding sessions to workshop..."
-  (1..rand(5..25)).each do |s_num|
+  rand(5..25).times do |s_num|
     start_datetime = Time.at(workshop.start_date.to_time + rand * (workshop.end_date.to_time.to_f - workshop.start_date.to_time.to_f)).to_datetime
     end_datetime = Time.at(start_datetime.to_time + rand * ((start_datetime + 8.hours).to_f - start_datetime.to_time.to_f)).to_datetime + 15.minutes
     
