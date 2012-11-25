@@ -1,0 +1,7 @@
+<h1><%= @user.email %></h1>
+
+<ul>
+  <% @user.sessions.each do |session| %>
+  <li><%= link_to session.title, session %></li>
+  <% end %>
+</ul>
