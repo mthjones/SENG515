@@ -17,8 +17,8 @@ SENG515::Application.routes.draw do
   resources :users, only: :show
   resources :rooms, only: :index
   resources :posts, :path => "blog/posts"
-
-  root to: 'workshops#index'
+  
+  root to: 'home#index'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
