@@ -39,6 +39,11 @@
           <i class="icon-plus"></i> Add Session
           <% end %>
         </li>
+        <li id="budgeter">
+          <%= link_to nil, remote: true do %>
+          <i class="icon-book"></i> Budget
+          <% end %>
+        </li>
         <% end %>
         <li class="nav-header">Sessions</li>
         <% unless @workshop.sessions.empty? %>
