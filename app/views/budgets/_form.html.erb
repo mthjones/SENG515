@@ -3,14 +3,20 @@
   <div class="control-group">
     <%= f.label :accomodation_cost, class: "control-label" %>
     <div class="controls">
-      <%= f.text_field :accomodation_cost, class: "input-block-level" %>
+      <div class="input-prepend">
+        <span class="add-on">$</span>
+        <%= f.text_field :accomodation_cost %>
+      </div>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :venue_cost, class: "control-label" %>
     <div class="controls">
-      <%= f.text_field :venue_cost, class: "input-block-level" %>
+      <div class="input-prepend">
+        <span class="add-on">$</span>
+        <%= f.text_field :venue_cost %>
+      </div>
     </div>
   </div>
   
