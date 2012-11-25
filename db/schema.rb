@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125213847) do
+ActiveRecord::Schema.define(:version => 20121125222747) do
 
   create_table "budgets", :force => true do |t|
     t.integer  "workshop_id"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(:version => 20121125213847) do
 
   add_index "equipment_rooms", ["equipment_id", "room_id"], :name => "index_equipment_rooms_on_equipment_id_and_room_id"
   add_index "equipment_rooms", ["room_id", "equipment_id"], :name => "index_equipment_rooms_on_room_id_and_equipment_id"
+
+  create_table "expenses", :force => true do |t|
+    t.integer  "budget_id"
+    t.string   "name"
+    t.decimal  "amount"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "expenses", ["budget_id"], :name => "index_expenses_on_budget_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title"
