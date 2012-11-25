@@ -1,2 +1,4 @@
-<%= @budget.accomodation_cost %>
-<%= @budget.venue_cost %>
+<h2>Budget for <%= link_to @workshop.title, @workshop %></h2>
+<div class="well">
+  <%= render 'budgets/form' %>
+</div>

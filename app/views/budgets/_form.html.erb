@@ -1,0 +1,22 @@
+<%= form_for([@workshop, @budget], html: {class: 'form-horizontal'}) do |f| %>
+  <%= render 'shared/error_messages', object: @budget %>
+  <div class="control-group">
+    <%= f.label :accomodation_cost, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :accomodation_cost, class: "input-block-level" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :venue_cost, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :venue_cost, class: "input-block-level" %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
