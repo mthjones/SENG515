@@ -6,3 +6,7 @@
   new_id = new Date().getTime()
   regexp = new RegExp("new_" + association, "g")
   $(link).parent().before(content.replace(regexp, new_id))
+
+@remove_expense = (link) ->
+  $(link).prev("input[type=hidden]").val(true)
+  $(link).parent(".expense").hide()
