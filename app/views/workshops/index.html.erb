@@ -5,6 +5,8 @@
 <% for workshop in @workshops %>
 <div class="well">
 	<h2><%= link_to workshop.title, workshop %></h2>
+  <p><b><%= workshop.start_date.strftime("%A, %b %-d, %Y") %> - <%= workshop.end_date.strftime("%A, %b %-d, %Y") %></b></p>
 	<p><%= workshop.description %></p>
+  <p><b><%= workshop.sessions.count %> sessions</b></p> 
 </div>
 <% end %>
