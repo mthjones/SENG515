@@ -2,7 +2,7 @@ class Admin::RoomsController < ApplicationController
   before_filter :ensure_admin
   
   def index
-    @rooms = Room.all
+    @rooms = Room.order("location ASC, room_no ASC")
   end
   
   def show
