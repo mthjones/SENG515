@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121115062833) do
+=======
+ActiveRecord::Schema.define(:version => 20121124235901) do
+>>>>>>> Removed Old User_sessions table
 
   create_table "equipment", :force => true do |t|
     t.string   "name"
@@ -63,6 +67,14 @@ ActiveRecord::Schema.define(:version => 20121115062833) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  create_table "users_sessions", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "session_id"
+  end
+
+  add_index "users_sessions", ["session_id", "user_id"], :name => "index_users_sessions_on_session_id_and_user_id"
+  add_index "users_sessions", ["user_id", "session_id"], :name => "index_users_sessions_on_user_id_and_session_id"
 
   create_table "workshops", :force => true do |t|
     t.string   "title"
