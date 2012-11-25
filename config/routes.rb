@@ -13,7 +13,7 @@ SENG515::Application.routes.draw do
         post :unregister
       end
     end
-    resource :budget, only: [:show, :update]
+    resource :budget, only: [:edit, :update]
   end
   resources :users, only: :show
   resources :rooms, only: :index
