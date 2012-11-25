@@ -20,7 +20,7 @@
     </div>
   </div>
   
-  <% fields_for :expenses do |builder| %>
+  <%= f.fields_for :expenses do |builder| %>
     <%= render 'expense_fields', f: builder %>
   <% end %>
   
