@@ -69,11 +69,13 @@ all_rooms = Room.all
 
 puts "Creating workshops..."
 50.times do |w_num|
+  start_date = Time.at(Date.today.beginning_of_year.to_time + rand * ((Date.today + 3.months).to_time.to_f - Date.today.beginning_of_year.to_time.to_f))
+  
 	workshop = Workshop.new({
     title: Faker::Lorem.words(rand(3..10)).join(" ").titleize, 
     description: Faker::Lorem.paragraphs(rand(3..10)).join(" "), 
-    start_date: Date.today, 
-    end_date: Date.today + rand(21).days
+    start_date: start_date,
+    end_date: start_date + rand(30).days
   })
   
   puts "\tAdding sessions to workshop..."
