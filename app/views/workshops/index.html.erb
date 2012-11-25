@@ -6,6 +6,8 @@
 <div class="well">
   <% if workshop.end_date < Date.today %>
   <div class="alert alert-error"><strong>This workshop has already finished!</strong></div>
+  <% elsif workshop.start_date < Date.today %>
+  <div class="alert"><strong>This workshop has already started!</strong></div>
   <% end %>
 	<h2><%= link_to workshop.title, workshop %></h2>
   <p><b><%= workshop.start_date.strftime("%A, %b %-d, %Y") %> - <%= workshop.end_date.strftime("%A, %b %-d, %Y") %></b></p>
