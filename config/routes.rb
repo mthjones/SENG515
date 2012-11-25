@@ -15,7 +15,6 @@ SENG515::Application.routes.draw do
     end
   end
   resources :users, only: :show
-  resources :my_sessions
   resources :rooms, only: :index
   resources :posts, :path => "blog/posts"
 
