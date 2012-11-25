@@ -30,10 +30,12 @@
 <% end %>
 </dl>
 <p><%= @session.description %></p>
-<% if current_user %>
-<% if current_user.sessions.include? @session %>
-<%= button_to 'Unregister', unregister_workshop_session_path(@session.workshop, @session), method: :post, class: "btn btn-danger" %>
-<% else %>
-<%= button_to 'Register', register_workshop_session_path(@session.workshop, @session), method: :post, class: "btn btn-success" %>
-<% end %>
-<% end %>
+<div class="reg-unreg">
+  <% if current_user %>
+  <% if current_user.sessions.include? @session %>
+  <%= button_to 'Unregister', unregister_workshop_session_path(@session.workshop, @session), method: :post, class: "btn btn-danger", remote: true %>
+  <% else %>
+  <%= button_to 'Register', register_workshop_session_path(@session.workshop, @session), method: :post, class: "btn btn-success", remote: true %>
+  <% end %>
+  <% end %>
+</div>
