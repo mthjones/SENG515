@@ -3,7 +3,7 @@ class WorkshopsController < ApplicationController
 		if params.has_key?(:all)
 			@workshops = Workshop.all
 		else
-      @workshops = Workshop.where("start_date >= ?", Date.today).order("start_date ASC")
+      @workshops = Workshop.where("end_date >= ?", Date.today).order("start_date ASC")
 		end
     session[:return_to] = request.url
 	end
