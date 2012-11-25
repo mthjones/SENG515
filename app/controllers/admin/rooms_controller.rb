@@ -46,7 +46,7 @@ class Admin::RoomsController < ApplicationController
   private
   
   def ensure_admin
-    unless current_user_is_admin
+    unless current_user.try(:admin?)
       redirect_to root_path
     end
   end

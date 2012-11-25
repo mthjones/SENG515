@@ -8,14 +8,14 @@ class PostsController < ApplicationController
       session[:return_to] = request.url
   end
   def new
-    if current_user_is_admin
+    if current_user.try(:admin?)
       @post = Post.new
     else
       redirect_to new_user_session_path
     end
   end
   def create
-    if current_user_is_admin
+    if current_user.try(:admin?)
       @post = Post.new(params[:post])
       if @post.save
         flash[:success] = "Post successfully created!"
@@ -28,14 +28,14 @@ class PostsController < ApplicationController
     end
   end
   def edit
-    if current_user_is_admin
+    if current_user.try(:admin?)
       @post = Post.find(params[:id])
     else
       redirect_to new_user_session_path
     end 
   end
   def update
-    if current_user_is_admin
+    if current_user.try(:admin?)
       @post = Post.find(params[:id])
       if @post.update_attributes(params[:post])
         flash[:success] = "Post successfully updated!"
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
     end
   end
   def destroy
-    if current_user_is_admin
+    if current_user.try(:admin?)
       Post.find(params[:id]).destroy
       flash[:success] = "Post successfully deleted!"
       redirect_to posts_url

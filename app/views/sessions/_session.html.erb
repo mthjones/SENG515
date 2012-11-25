@@ -1,4 +1,4 @@
-<% if current_user_is_admin %>
+<% if current_user.try(:admin?) %>
 <ul class="admin-controls">
   <li>
     <%= link_to workshop_session_path(@session.workshop, @session), method: "delete", rel: "tooltip", title: "Delete", data: { confirm: "Are you sure you want to delete this workshop?", placement: "left" }, remote: true do %>
@@ -18,7 +18,7 @@
   <dd><%= @session.room.room_no %> - <%= @session.room.location %></dd>
   <dt>Time</dt>
   <dd><time><%= l @session.start_datetime, format: :long %></time> - <time><%= l @session.end_datetime, format: :long %></time></dd>
-<% if current_user_is_admin %>
+<% if current_user.try(:admin?) %>
   <dt>Equipment</dt>
   <dd>
     <ul>

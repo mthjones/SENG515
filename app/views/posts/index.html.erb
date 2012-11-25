@@ -1,4 +1,4 @@
-<% if current_user_is_admin %>
+<% if current_user.try(:admin?) %>
 <div class="well"><%= link_to "Add a new post", new_post_path %></div>
 <% end %>
 
