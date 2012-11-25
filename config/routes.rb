@@ -1,6 +1,6 @@
 SENG515::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users, :path => "accounts", :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
   namespace :admin do
     resources :equipment
