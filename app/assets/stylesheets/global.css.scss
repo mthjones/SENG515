@@ -16,9 +16,28 @@ body {
   @extend .control-group.error
 }
 
-.dropdown-menu form {
+.login-dropdown {
+  padding: 0;
+  width: auto;
+}
+
+.login-dropdown form {
   padding: 10px;
   padding-bottom: 0;
+}
+
+.login-dropdown label {
+  color: #333;
+}
+
+.login-dropdown-footer {
+  padding: 10px;
+  background-color: #EEE;
+  text-align: center;
+}
+
+.login-dropdown-footer a {
+  color: #08C;
 }
 
 /* Admin controls */

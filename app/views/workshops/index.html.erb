@@ -4,9 +4,9 @@
 
 <% for workshop in @workshops %>
 <div class="well">
-  <% if workshop.end_date < Date.today %>
+  <% if workshop.finished? %>
   <div class="alert alert-error"><strong>This workshop has already finished!</strong></div>
-  <% elsif workshop.start_date < Date.today %>
+  <% elsif workshop.in_progress? %>
   <div class="alert"><strong>This workshop has already started!</strong></div>
   <% end %>
 	<h2><%= link_to workshop.title, workshop %></h2>
