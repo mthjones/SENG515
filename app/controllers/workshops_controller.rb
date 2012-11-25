@@ -1,7 +1,11 @@
 class WorkshopsController < ApplicationController
 	def index
+		if params.has_key?(:all)
+			@workshops = Workshop.all
+		else
       @workshops = Workshop.where("start_date >= ?", Date.today).order("start_date ASC")
-      session[:return_to] = request.url
+		end
+    session[:return_to] = request.url
 	end
 
 	def show
