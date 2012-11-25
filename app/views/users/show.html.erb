@@ -2,6 +2,6 @@
 
 <ul>
   <% @user.sessions.each do |session| %>
-  <li><%= link_to session.title, session %></li>
+  <li><%= link_to session.title, workshop_path(session.workshop) %></li>
   <% end %>
 </ul>
