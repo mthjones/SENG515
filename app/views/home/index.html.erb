@@ -15,3 +15,11 @@
   </tr>
   <% end %>
 </table>
+<hr>
+<h2>Recent Announcements</h2>
+<% @posts.each do |post| %>
+<div class="well">
+  <h2><%= link_to post.title, post %></h2>
+  <p><%= truncate(post.content, length: 500, separator: '.', omission: '.') %> <%= link_to "(more)", post %></p>
+</div>
+<% end %>
