@@ -21,26 +21,10 @@
   </div>
   
   <% fields_for :expenses do |builder| %>
-    <div class="control-group">
-      <%= builder.label :name, class: "control-label" %>
-      <div class="controls">
-        <%= builder.text_field :name %>
-      </div>
-    </div>
-    
-    <div class="control-group">
-      <%= builder.label :amount, class: "control-label" %>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on">$</span>
-          <%= builder.text_field :amount %>
-        </div>
-      </div>
-    </div>
-    
-    <%= builder.check_box :_destroy %>
-    <%= builder.label :_destroy, "Remove Expense" %>
+    <%= render 'expense_fields', f: builder %>
   <% end %>
+  
+  <p><%= link_to_add_expense "Add Expense", f, :expenses %></p>
   
   <div class="control-group">
     <div class="controls">
