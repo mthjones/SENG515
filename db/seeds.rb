@@ -115,6 +115,20 @@ puts "Creating workshops..."
   end
 end
 
+puts "Creating blog posts..."
+50.times do |b_num|
+  post = Post.new({
+    title: Faker::Lorem.words(rand(2..8)).join(" ").titleize,
+    content: Faker::Lorem.paragraphs(rand(10..30)).join(" ")
+    })
+  
+  if post.save
+    puts "\tCreated post: #{post.title}"
+  else
+    puts "\tCouldn't create post: #{post.title}"
+  end
+end
+
 if User.count == 0
   puts "Creating administrator user..."
   User.create!(email: "admin@admin.com", password: "admin")
