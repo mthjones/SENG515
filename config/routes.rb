@@ -7,7 +7,11 @@ SENG515::Application.routes.draw do
     resources :rooms
   end
   resources :workshops do
-    resources :sessions
+    resources :sessions do
+      member do
+        post :register
+      end
+    end
   end
   resources :users, only: :show
   resources :my_sessions

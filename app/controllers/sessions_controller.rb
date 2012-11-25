@@ -38,4 +38,10 @@ class SessionsController < ApplicationController
     @session.destroy
     respond_with @session, location: workshop_path(@workshop)
   end
+  
+  def register
+    @session = Session.find(params[:id])
+    current_user.sessions << @session
+    redirect_to Workshop.find(params[:workshop_id])
+  end
 end
