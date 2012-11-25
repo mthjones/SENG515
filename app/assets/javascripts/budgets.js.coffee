@@ -9,4 +9,4 @@
 
 @remove_expense = (link) ->
   $(link).prev("input[type=hidden]").val(true)
-  $(link).parent(".expense").hide()
+  $(link).closest(".expense").hide()
