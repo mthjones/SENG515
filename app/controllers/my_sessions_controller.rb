@@ -16,6 +16,8 @@ class MySessionsController < ApplicationController
 
   def show
     @user = current_user
+    @user.sessions = Users_Sessions.new(:user_id => "5" :session_id =>"1")
+    
     #@sessions = @user.session.find(params[:user_id])
   end
 end

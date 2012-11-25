@@ -59,6 +59,24 @@ ActiveRecord::Schema.define(:version => 20121124235901) do
     t.integer  "room_id"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "sessions_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "session_id"
+  end
+
+  add_index "sessions_users", ["session_id", "user_id"], :name => "index_sessions_users_on_session_id_and_user_id"
+  add_index "sessions_users", ["user_id", "session_id"], :name => "index_sessions_users_on_user_id_and_session_id"
+
+  create_table "user_sessions", :force => true do |t|
+    t.integer  "session_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+>>>>>>> added tables relationships started the subscribe to session button
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_hash"
@@ -67,14 +85,6 @@ ActiveRecord::Schema.define(:version => 20121124235901) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
-
-  create_table "users_sessions", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "session_id"
-  end
-
-  add_index "users_sessions", ["session_id", "user_id"], :name => "index_users_sessions_on_session_id_and_user_id"
-  add_index "users_sessions", ["user_id", "session_id"], :name => "index_users_sessions_on_user_id_and_session_id"
 
   create_table "workshops", :force => true do |t|
     t.string   "title"

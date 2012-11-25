@@ -67,6 +67,13 @@ end
 
 all_rooms = Room.all
 
+
+
+puts "Creating test user"
+sessions_users.create!(:user_id => 5, :session_id => 1)
+
+
+
 puts "Creating workshops..."
 50.times do |w_num|
   start_date = Time.at(Date.today.beginning_of_year.to_time + rand * ((Date.today + 3.months).to_time.to_f - Date.today.beginning_of_year.to_time.to_f))

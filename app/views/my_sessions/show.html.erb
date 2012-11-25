@@ -1,9 +1,9 @@
 <h1>My Sessions:</h1>
 <p> You are currently enrolled in the following sessions </p>
 <h1><%= @user.email %></h1>
+<h1><%= current_user.id%></h1>
 <% if  not @user.sessions.empty? %>
 	<h1><%= @user.email %></h1>
 <% end %>
- </div>
 
 
