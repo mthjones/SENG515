@@ -24,7 +24,7 @@
   <div class="control-group">
     <%= f.label :room, nil, class: "control-label" %>
     <div class="controls">
-      <%= f.select :room_id, Room.all.collect { |x| [x.room_no + " - " + x.location, x.id] }, {}, class: "input-block-level" %>
+      <%= f.select :room_id, Room.all.collect { |x| [x.room_no.to_s + " - " + x.location, x.id] }, {}, class: "input-block-level" %>
     </div>
   </div>
 
