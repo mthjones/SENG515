@@ -10,14 +10,8 @@ SENG515::Application.routes.draw do
     resources :sessions
   end
   resources :my_sessions
-  resources :users
   resources :rooms, only: :index
   resources :posts, :path => "blog/posts"
-    
-  match '/register',  to: 'users#new'
-  match '/login' => 'user_sessions#new', via: :get
-  match '/login' => 'user_sessions#create', via: :post
-  match '/logout' => 'user_sessions#destroy', via: :delete
 
   root to: 'workshops#index'
 
