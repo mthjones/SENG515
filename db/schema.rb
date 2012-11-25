@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125081541) do
+ActiveRecord::Schema.define(:version => 20121125213847) do
+
+  create_table "budgets", :force => true do |t|
+    t.integer  "workshop_id"
+    t.decimal  "accomodation_cost", :precision => 10, :scale => 2
+    t.decimal  "vendor_cost",       :precision => 10, :scale => 2
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
+
+  add_index "budgets", ["workshop_id"], :name => "index_budgets_on_workshop_id"
 
   create_table "equipment", :force => true do |t|
     t.string   "name"
