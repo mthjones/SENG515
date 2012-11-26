@@ -20,12 +20,26 @@
     </div>
   </div>
   
-  <%= f.fields_for :expenses do |builder| %>
-    <%= render 'expense_fields', f: builder %>
-  <% end %>
-  
-  <p><%= link_to_add_expense "Add Expense", f, :expenses %></p>
-  
+  <h2>Expenses</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.fields_for :expenses do |builder| %>
+        <%= render 'expense_fields', f: builder %>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3"><%= link_to_add_expense "Add Expense", f, :expenses %></td>
+    </tfoot>
+  </table>
+    
   <div class="control-group">
     <div class="controls">
       <%= f.submit class: "btn btn-primary" %>

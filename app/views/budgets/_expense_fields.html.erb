@@ -1,22 +1,13 @@
-<div class="expense">
-  <hr>
-  <div class="control-group">
-    <%= f.label :name, class: "control-label" %>
-    <div class="controls">
-      <%= f.text_field :name %>
+<tr class="expense">
+  <td><%= f.text_field :name, class: "input-xlarge" %></td>
+  <td>
+    <div class="input-prepend">
+      <span class="add-on">$</span>
+      <%= f.text_field :amount, class: "input-xlarge" %>
     </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :amount, class: "control-label" %>
-    <div class="controls">
-      <div class="input-prepend">
-        <span class="add-on">$</span>
-        <%= f.text_field :amount %>
-      </div>
-    </div>
-  </div>
-
-  <%= f.hidden_field :_destroy %>
-  <%= link_to_function "remove", "remove_expense(this)" %>
-</div>
+  </td>
+  <td>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to_function "remove", "remove_expense(this)" %>
+  </td>
+</tr>
