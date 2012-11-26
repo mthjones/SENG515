@@ -1,4 +1,6 @@
 class BudgetsController < ApplicationController
+  before_filter :authenticate_admin!
+  
   def edit
     @workshop = Workshop.find(params[:workshop_id])
     @budget = @workshop.budget

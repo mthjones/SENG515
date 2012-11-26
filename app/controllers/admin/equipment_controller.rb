@@ -1,5 +1,5 @@
 class Admin::EquipmentController < ApplicationController
-  before_filter :ensure_admin
+  before_filter :authenticate_admin!
   
   def index
     @equipment = Equipment.all
@@ -41,13 +41,5 @@ class Admin::EquipmentController < ApplicationController
     Equipment.find(params[:id]).destroy
     flash[:success] = "Equipment successfully deleted!"
     redirect_to admin_equipment_index_path
-  end
-  
-  private
-  
-  def ensure_admin
-    unless current_user.try(:admin?)
-      redirect_to root_path
-    end
   end
 end

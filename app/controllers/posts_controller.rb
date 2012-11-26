@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_admin!, except: [:index, :show]
+  
   def index
     if current_user.try(:admin?)
       @posts = Post.all.reverse
@@ -12,56 +14,36 @@ class PostsController < ApplicationController
   end
   
   def new
-    if current_user.try(:admin?)
-      @post = Post.new
-    else
-      redirect_to new_user_session_path
-    end
+    @post = Post.new
   end
   
   def create
-    if current_user.try(:admin?)
-      @post = Post.new(params[:post])
-      if @post.save
-        flash[:success] = "Post successfully created!"
-        redirect_to @post
-      else
-        render 'new'
-      end
+    @post = Post.new(params[:post])
+    if @post.save
+      flash[:success] = "Post successfully created!"
+      redirect_to @post
     else
-      redirect_to status: 404
+      render 'new'
     end
   end
   
   def edit
-    if current_user.try(:admin?)
-      @post = Post.find(params[:id])
-    else
-      redirect_to new_user_session_path
-    end 
+    @post = Post.find(params[:id])
   end
   
   def update
-    if current_user.try(:admin?)
-      @post = Post.find(params[:id])
-      if @post.update_attributes(params[:post])
-        flash[:success] = "Post successfully updated!"
-        redirect_to @post
-      else
-        render 'edit'
-      end
+    @post = Post.find(params[:id])
+    if @post.update_attributes(params[:post])
+      flash[:success] = "Post successfully updated!"
+      redirect_to @post
     else
-      redirect_to status: 404
+      render 'edit'
     end
   end
   
   def destroy
-    if current_user.try(:admin?)
-      Post.find(params[:id]).destroy
-      flash[:success] = "Post successfully deleted!"
-      redirect_to posts_url
-    else
-      redirect_to new_user_session_path
-    end
+    Post.find(params[:id]).destroy
+    flash[:success] = "Post successfully deleted!"
+    redirect_to posts_url
   end
 end

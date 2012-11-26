@@ -1,5 +1,5 @@
 class Admin::RoomsController < ApplicationController
-  before_filter :ensure_admin
+  before_filter :authenticate_admin!
   
   def index
     @rooms = Room.order("location ASC, room_no ASC")
@@ -41,13 +41,5 @@ class Admin::RoomsController < ApplicationController
     Room.find(params[:id]).destroy
     flash[:success] = "Room successfully deleted!"
     redirect_to admin_rooms_path
-  end
-  
-  private
-  
-  def ensure_admin
-    unless current_user.try(:admin?)
-      redirect_to root_path
-    end
   end
 end
