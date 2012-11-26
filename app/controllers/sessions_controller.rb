@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_after_filter :store_location
   respond_to :html, :js
   
   def show
