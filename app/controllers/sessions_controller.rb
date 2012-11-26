@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :authenticate_admin!, except: [:index, :show]
-  skip_after_filter :store_location
+  before_filter :authenticate_admin!, except: [:index, :show, :register, :unregister]
   respond_to :html, :js
   
   def show
