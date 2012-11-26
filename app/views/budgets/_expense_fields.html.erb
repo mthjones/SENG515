@@ -1,9 +1,9 @@
 <tr class="expense">
-  <td><%= f.text_field :name, class: "input-xlarge" %></td>
+  <td><%= f.text_field :name, class: "input-xxlarge" %></td>
   <td>
     <div class="input-prepend">
       <span class="add-on">$</span>
-      <%= f.text_field :amount, class: "input-xlarge", :value => (number_with_precision(f.object.amount || 0, :precision => 2)) %>
+      <%= f.text_field :amount, class: "input-large", :value => (number_with_precision(f.object.amount || 0, :precision => 2)) %>
     </div>
   </td>
   <td>
