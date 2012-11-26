@@ -5,7 +5,7 @@
     <div class="controls">
       <div class="input-prepend">
         <span class="add-on">$</span>
-        <%= f.text_field :accomodation_cost %>
+        <%= f.text_field :accomodation_cost, :value => number_with_precision(f.object.accomodation_cost || 0, :precision => 2) %>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
     <div class="controls">
       <div class="input-prepend">
         <span class="add-on">$</span>
-        <%= f.text_field :venue_cost %>
+        <%= f.text_field :venue_cost, :value => number_with_precision(f.object.venue_cost || 0, :precision => 2) %>
       </div>
     </div>
   </div>

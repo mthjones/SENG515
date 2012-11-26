@@ -3,7 +3,7 @@
   <td>
     <div class="input-prepend">
       <span class="add-on">$</span>
-      <%= f.text_field :amount, class: "input-xlarge" %>
+      <%= f.text_field :amount, class: "input-xlarge", :value => (number_with_precision(f.object.amount || 0, :precision => 2)) %>
     </div>
   </td>
   <td>
