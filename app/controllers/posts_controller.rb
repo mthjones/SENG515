@@ -5,12 +5,12 @@ class PostsController < ApplicationController
     else
       @posts = Post.where("admin_only = ?", false).reverse
     end
-    session[:return_to] = request.url
   end
+  
   def show
-      @post = Post.find(params[:id])
-      session[:return_to] = request.url
+    @post = Post.find(params[:id])
   end
+  
   def new
     if current_user.try(:admin?)
       @post = Post.new
@@ -18,6 +18,7 @@ class PostsController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+  
   def create
     if current_user.try(:admin?)
       @post = Post.new(params[:post])
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
       redirect_to status: 404
     end
   end
+  
   def edit
     if current_user.try(:admin?)
       @post = Post.find(params[:id])
@@ -38,6 +40,7 @@ class PostsController < ApplicationController
       redirect_to new_user_session_path
     end 
   end
+  
   def update
     if current_user.try(:admin?)
       @post = Post.find(params[:id])
@@ -51,6 +54,7 @@ class PostsController < ApplicationController
       redirect_to status: 404
     end
   end
+  
   def destroy
     if current_user.try(:admin?)
       Post.find(params[:id]).destroy
