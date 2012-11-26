@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   def index
-     @posts = Post.all.reverse
-      session[:return_to] = request.url
+    if current_user.try(:admin?)
+      @posts = Post.all.reverse
+    else
+      @posts = Post.where("admin_only = ?", false).reverse
+    end
+    session[:return_to] = request.url
   end
   def show
       @post = Post.find(params[:id])
