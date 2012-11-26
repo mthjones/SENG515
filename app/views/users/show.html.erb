@@ -1,7 +1,14 @@
 <h1><%= @user.email %></h1>
 
-<ul>
-  <% @user.sessions.each do |session| %>
-  <li><%= link_to session.title, workshop_path(session.workshop) %></li>
+<div class="well">
+  <% @user.workshops.each do |workshop| %>
+  <h3><%= workshop.title %></h3>
+  <ul>
+    <% @user.sessions.each do |session| %>
+    <% if workshop.sessions.include? session %>
+    <li><%= link_to session.title, workshop_path(workshop) %></li>
+    <% end %>
+    <% end %>
+  </ul>
   <% end %>
-</ul>
+</div>
