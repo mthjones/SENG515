@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     session[:return_to]
   end
   
+  def after_sign_out_path_for(resource)
+    request.referrer
+  end
+  
   private
     def store_location
       session[:return_to] = request.fullpath
