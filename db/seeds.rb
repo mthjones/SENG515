@@ -10,6 +10,7 @@ Workshop.delete_all
 Session.delete_all
 Room.delete_all
 Equipment.delete_all
+Post.delete_all
 
 EQUIPMENT = [
   { name: "Projector", description: Faker::Lorem.sentence(rand(5..20)) },
@@ -121,7 +122,8 @@ puts "Creating blog posts..."
 50.times do |b_num|
   post = Post.new({
     title: Faker::Lorem.words(rand(2..8)).join(" ").titleize,
-    content: Faker::Lorem.paragraphs(rand(10..30)).join(" ")
+    content: Faker::Lorem.paragraphs(rand(10..30)).join(" "),
+    admin_only: rand(2) == 1
     })
   
   if post.save
