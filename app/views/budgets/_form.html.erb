@@ -20,7 +20,8 @@
     </div>
   </div>
   
-  <h2>Expenses</h2>
+  <hr>
+  <h3>Expenses</h3>
   <table class="table">
     <thead>
       <tr>
@@ -39,6 +40,9 @@
         <td colspan="3"><%= link_to_add_expense "Add Expense", f, :expenses %></td>
     </tfoot>
   </table>
+  
+  <hr>
+  <h3>Total: $<span id="budget-total"><%= number_with_precision(@budget.total, precision: 2) %></span></h3>
     
   <div class="control-group">
     <div class="controls">
