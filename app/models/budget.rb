@@ -6,6 +6,6 @@ class Budget < ActiveRecord::Base
   accepts_nested_attributes_for :expenses, :allow_destroy => true
   
   def total
-    return accomodation_cost + venue_cost + expenses.map(&:amount).sum
+    return (accomodation_cost || 0) + (venue_cost || 0) + expenses.map(&:amount).sum
   end
 end
