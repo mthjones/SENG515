@@ -12,10 +12,14 @@ end
 
 group :test do
   gem 'rake'
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem 'guard-rspec'
+
 end
 
 group :production do
-	gem 'pg'
+	
 end
 
 # Gems used only for assets and not required
