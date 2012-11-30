@@ -36,8 +36,8 @@ class Session < ActiveRecord::Base
           self.errors.add(:room, "is already booked at the selected times.")
           break
         end
-      end
     end
+  end
   end
   
   def within_workshop_date_range
