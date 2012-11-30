@@ -40,14 +40,14 @@ describe Workshop do
 
   it "should validate if the workshop has finished" do
     @workshop.end_date = Date.today - 1
-    @workshop.finished? == true
+    @workshop.finished?.should == true
   end
 
-  it "should validate if the workshop is in progress"
-    @workshop.finished = false
+  it "should validate if the workshop is in progress" do
     @workshop.start_date = Date.today - 1
     @workshop.in_progress?.should == true
   end
+
 
 
 end
