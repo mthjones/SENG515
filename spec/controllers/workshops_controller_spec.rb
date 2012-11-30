@@ -1,15 +1,27 @@
 require 'spec_helper'
 
 describe WorkshopsController do
+ 
+   def setup
+    @controller = UnderTestController.new
+    @request    = ActionController::TestRequest.new
+    @response   = ActionController::TestResponse.new
+   end
 
-it "can create a workshop" do
-	@controller = WorkshopsController.new
-	@workshop
-	@controller.create(:title => 'asd')
+  describe "GET 'index'" do
+   it "should be successful" do
+     get 'index'
+     response.should be_success
+   end
+  end
+
+  describe "GET 'show'" do
+   it "should be successful" do
+     get 'index'
+     response.should be_success
+   end
+  end
 
 
-
-
-end 
 
 end

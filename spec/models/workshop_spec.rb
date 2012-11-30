@@ -31,4 +31,23 @@ describe Workshop do
   	before { @workshop.end_date = nil }
   	it { should_not be_valid }
   end
+
+  it "should validate end date is later than start date" do
+    @workshop.start_date.should <= @workshop.end_date
+    @workshop.start_date = @workshop.end_date + 1
+    @workshop.valid?.should == false
+  end
+
+  it "should validate if the workshop has finished" do
+    @workshop.end_date = Date.today - 1
+    @workshop.finished? == true
+  end
+
+  it "should validate if the workshop is in progress"
+    @workshop.finished = false
+    @workshop.start_date = Date.today - 1
+    @workshop.in_progress?.should == true
+  end
+
+
 end
