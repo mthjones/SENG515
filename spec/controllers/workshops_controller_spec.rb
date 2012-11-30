@@ -4,7 +4,9 @@ describe WorkshopsController do
 
 it "can create a workshop" do
 	@controller = WorkshopsController.new
+	@workshop
 	@controller.create(:title => 'asd')
+
 
 
 
