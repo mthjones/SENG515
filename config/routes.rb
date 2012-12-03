@@ -1,5 +1,15 @@
 SENG515::Application.routes.draw do
   
+  get "registered_users/update"
+
+  get "registered_users/edit"
+
+  get "registered_users/destroy"
+
+  get "registered_users/index"
+
+  get "registered_users/show"
+
   devise_for :users, :path => "accounts", :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
   namespace :admin do
