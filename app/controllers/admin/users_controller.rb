@@ -24,9 +24,13 @@ class Admin::UsersController < ApplicationController
   end  
 
   def destroy
-    # CHECK IF DELETING AN ADMIN!
-    User.find(params[:id]).destroy
-    flash[:success] = "User successfully deleted!"
+    user = User.find(params[:id])
+    if user.admin?
+      flash[:error] = "Can not delete an admin. If deleting an admin was intentional, please demote them before deleting."
+    else
+      user.destroy
+      flash[:success] = "User successfully deleted!"
+    end
     redirect_to admin_users_path
   end
 end
