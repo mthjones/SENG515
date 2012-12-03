@@ -7,6 +7,7 @@ SENG515::Application.routes.draw do
     resources :equipment
     resources :rooms
     resources :users
+    resources :budgets, only: :index
   end
   resources :workshops do
     resources :sessions do
