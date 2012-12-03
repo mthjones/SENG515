@@ -6,7 +6,7 @@ SENG515::Application.routes.draw do
   namespace :admin do
     resources :equipment
     resources :rooms
-    resources :registered_users
+    resources :users
   end
   resources :workshops do
     resources :sessions do
