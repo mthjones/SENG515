@@ -24,6 +24,7 @@ class RegisteredUsersController < ApplicationController
   end  
 
   def destroy
+    # CHECK IF DELETING AN ADMIN!
     User.find(params[:id]).destroy
     flash[:success] = "User successfully deleted!"
     redirect_to admin_registered_users_path
