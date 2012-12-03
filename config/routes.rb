@@ -1,20 +1,12 @@
 SENG515::Application.routes.draw do
   
-  get "registered_users/update"
-
-  get "registered_users/edit"
-
-  get "registered_users/destroy"
-
-  get "registered_users/index"
-
-  get "registered_users/show"
 
   devise_for :users, :path => "accounts", :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
   namespace :admin do
     resources :equipment
     resources :rooms
+    resources :registered_users
   end
   resources :workshops do
     resources :sessions do
@@ -30,6 +22,7 @@ SENG515::Application.routes.draw do
   resources :posts, :path => "blog/posts"
   
   root to: 'home#index'
+
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
