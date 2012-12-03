@@ -17,7 +17,7 @@ class Admin::UsersController < ApplicationController
    @users = Users.find(params[:id])
     if @users.update_attributes(params[:email])
       flash[:success] = "Equipment successfully saved!"
-     redirect_to admin_registered_users_index_path
+     redirect_to admin_users_path
     else
       render :edit
     end
@@ -27,6 +27,6 @@ class Admin::UsersController < ApplicationController
     # CHECK IF DELETING AN ADMIN!
     User.find(params[:id]).destroy
     flash[:success] = "User successfully deleted!"
-    redirect_to admin_registered_users_path
+    redirect_to admin_users_path
   end
 end
