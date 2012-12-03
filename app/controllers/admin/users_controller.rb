@@ -25,10 +25,14 @@ class Admin::UsersController < ApplicationController
   end
   
   def demote
-    user = User.find(params[:id])
-    user.admin = false
-    user.save
-    flash[:success] = "User successfully demoted from admin!"
+    if User.where(admin: true).count <= 1
+      flash[:error] = "Can not have 0 admins."
+    else
+      user = User.find(params[:id])
+      user.admin = false
+      user.save
+      flash[:success] = "User successfully demoted from admin!"
+    end
     redirect_to admin_users_path
   end
 end
