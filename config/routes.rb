@@ -6,7 +6,12 @@ SENG515::Application.routes.draw do
   namespace :admin do
     resources :equipment
     resources :rooms
-    resources :users, only: [:index, :destroy]
+    resources :users, only: [:index, :destroy] do
+      member do
+        post :promote
+        post :demote
+      end
+    end
     resources :budgets, only: :index
   end
   resources :workshops do

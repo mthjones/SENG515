@@ -15,4 +15,20 @@ class Admin::UsersController < ApplicationController
     end
     redirect_to admin_users_path
   end
+  
+  def promote
+    user = User.find(params[:id])
+    user.admin = true
+    user.save
+    flash[:success] = "User successfully promoted to admin!"
+    redirect_to admin_users_path
+  end
+  
+  def demote
+    user = User.find(params[:id])
+    user.admin = false
+    user.save
+    flash[:success] = "User successfully demoted from admin!"
+    redirect_to admin_users_path
+  end
 end
