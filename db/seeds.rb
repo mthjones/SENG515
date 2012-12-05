@@ -138,6 +138,7 @@ if User.where("admin = ?", true).count == 0
   puts "Creating administrator user..."
   user = User.create!(email: "admin@admin.com", password: "admin1", password_confirmation: "admin1")
   user.admin = true
+  user.verified = true
   user.save
   puts "\tEmail: admin@admin.com"
   puts "\tPassword: admin1"
