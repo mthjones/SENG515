@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126002731) do
+ActiveRecord::Schema.define(:version => 20121205191600) do
 
   create_table "budgets", :force => true do |t|
     t.integer  "workshop_id"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20121126002731) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false
+    t.boolean  "verified"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
