@@ -36,4 +36,12 @@ class Admin::UsersController < ApplicationController
     end
     redirect_to admin_users_path
   end
+  
+  def verify
+    user = User.find(params[:id])
+    user.verified = true
+    user.save
+    flash[:success] = "User successfully verified!"
+    redirect_to admin_users_path
+  end
 end

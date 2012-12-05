@@ -10,6 +10,7 @@ SENG515::Application.routes.draw do
       member do
         post :promote
         post :demote
+        post :verify
       end
     end
     resources :budgets, only: :index
