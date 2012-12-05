@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_filter :authenticate_admin!, except: [:index, :show, :register, :unregister]
+  before_filter :authenticate_verified!, only: [:register, :unregister]
   respond_to :html, :js
   
   def show

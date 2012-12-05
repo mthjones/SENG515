@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path
       return false
     end
+    
+    def authenticate_verified!
+      if current_user.try(:verified?)
+        return true
+      end
+      redirect_to new_user_session_path
+      return false
+    end
 end
