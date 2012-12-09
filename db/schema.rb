@@ -67,11 +67,11 @@ ActiveRecord::Schema.define(:version => 20121205191600) do
 
   create_table "sessions", :force => true do |t|
     t.string   "title"
-    t.text     "description",    :limit => 255
+    t.text     "description"
     t.datetime "start_datetime"
     t.datetime "end_datetime"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "workshop_id"
     t.integer  "room_id"
   end
