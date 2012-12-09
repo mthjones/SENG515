@@ -13,15 +13,19 @@ Room.delete_all
 Equipment.delete_all
 Post.delete_all
 
+def range_rand(range)
+  range.first + rand(range.last+1 - range.first)
+end
+
 EQUIPMENT = [
-  { name: "Projector", description: Faker::Lorem.sentence(rand(5..20)) },
-  { name: "TV", description: Faker::Lorem.sentence(rand(5..20)) },
-  { name: "VCR", description: Faker::Lorem.sentence(rand(5..20)) },
-  { name: "DVD Player", description: Faker::Lorem.sentence(rand(5..20)) },
-  { name: "Blu-ray Player", description: Faker::Lorem.sentence(rand(5..20)) },
-  { name: "Conference Table", description: Faker::Lorem.sentence(rand(5..20)) },
-  { name: "Microphone", description: Faker::Lorem.sentence(rand(5..20)) },
-  { name: "Computer", description: Faker::Lorem.sentence(rand(5..20)) }
+  { name: "Projector", description: Faker::Lorem.sentence(range_rand(5..20)) },
+  { name: "TV", description: Faker::Lorem.sentence(range_rand(5..20)) },
+  { name: "VCR", description: Faker::Lorem.sentence(range_rand(5..20)) },
+  { name: "DVD Player", description: Faker::Lorem.sentence(range_rand(5..20)) },
+  { name: "Blu-ray Player", description: Faker::Lorem.sentence(range_rand(5..20)) },
+  { name: "Conference Table", description: Faker::Lorem.sentence(range_rand(5..20)) },
+  { name: "Microphone", description: Faker::Lorem.sentence(range_rand(5..20)) },
+  { name: "Computer", description: Faker::Lorem.sentence(range_rand(5..20)) }
 ]
 
 puts "Creating equipment..."
@@ -75,20 +79,20 @@ puts "Creating workshops..."
   start_date = Time.at(Date.today.beginning_of_year.to_time + rand * ((Date.today + 3.months).to_time.to_f - Date.today.beginning_of_year.to_time.to_f))
   
 	workshop = Workshop.new({
-    title: Faker::Lorem.words(rand(3..10)).join(" ").titleize, 
-    description: Faker::Lorem.paragraphs(rand(3..10)).join(" "), 
+    title: Faker::Lorem.words(range_rand(3..10)).join(" ").titleize, 
+    description: Faker::Lorem.paragraphs(range_rand(3..10)).join(" "), 
     start_date: start_date,
     end_date: start_date + rand(30).days
   })
   
   puts "\tAdding sessions to workshop..."
-  rand(5..25).times do |s_num|
+  range_rand(5..25).times do |s_num|
     start_datetime = Time.at(workshop.start_date.to_time + rand * (workshop.end_date.to_time.to_f - workshop.start_date.to_time.to_f)).to_datetime
     end_datetime = Time.at(start_datetime.to_time + rand * ((start_datetime + 8.hours).to_f - start_datetime.to_time.to_f)).to_datetime + 15.minutes
     
     session = Session.new({
-      title: Faker::Lorem.words(rand(2..8)).join(" ").titleize,
-      description: Faker::Lorem.sentences(rand(5..20)).join(" "),
+      title: Faker::Lorem.words(range_rand(2..8)).join(" ").titleize,
+      description: Faker::Lorem.sentences(range_rand(5..20)).join(" "),
       start_datetime: start_datetime,
       end_datetime: end_datetime
       })
@@ -123,8 +127,8 @@ end
 puts "Creating blog posts..."
 50.times do |b_num|
   post = Post.new({
-    title: Faker::Lorem.words(rand(2..8)).join(" ").titleize,
-    content: Faker::Lorem.paragraphs(rand(10..30)).join(" "),
+    title: Faker::Lorem.words(range_rand(2..8)).join(" ").titleize,
+    content: Faker::Lorem.paragraphs(range_rand(10..30)).join(" "),
     admin_only: rand(2) == 1
     })
   
