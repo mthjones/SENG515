@@ -20,7 +20,8 @@ EQUIPMENT = [
   { name: "DVD Player", description: Faker::Lorem.sentence(rand(5..20)) },
   { name: "Blu-ray Player", description: Faker::Lorem.sentence(rand(5..20)) },
   { name: "Conference Table", description: Faker::Lorem.sentence(rand(5..20)) },
-  { name: "Microphone", description: Faker::Lorem.sentence(rand(5..20)) }
+  { name: "Microphone", description: Faker::Lorem.sentence(rand(5..20)) },
+  { name: "Computer", description: Faker::Lorem.sentence(rand(5..20)) }
 ]
 
 puts "Creating equipment..."
